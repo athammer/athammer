@@ -4,7 +4,7 @@ module.exports = {
         if(req.headers && req.get('Host').slice(0, 4) === 'www.'){
             console.log("bad www.")
             var newHost = req.get('Host').slice(4);
-            var secureUrlNoWWW = "https://" + newHost + req.url;
+            var secureUrlNoWWW = "http://" + newHost + req.url;
             res.writeHead(301, { "Location":  secureUrlNoWWW });
             res.end();
             return 1;
