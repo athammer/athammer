@@ -3,6 +3,8 @@ var app = express();
 var favicon = require('serve-favicon');
 var helmet = require('helmet');
 
+var middlewares = require("./app/middlewares/middleware.js");
+
 
 app.set('view engine', 'ejs');
 
