@@ -1,0 +1,1 @@
+{"version":3,"sources":["main.scss"],"names":[],"mappings":"AAAA,cACI,QAAS,MACT,YAAa,KACb,aAAc,KAElB,aACI,WAAY,OAEhB,IACI,MAAO,IACP,OAAQ","file":"main.css","sourcesContent":[".block-center {\n    display: block;\n    margin-left: auto;\n    margin-right: auto \n}\n.text-center{\n    text-align: center;\n}\nimg {\n    width: 50%;\n    height: auto;\n}\n"],"sourceRoot":"/source/"}

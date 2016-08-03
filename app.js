@@ -1,7 +1,7 @@
 var express = require('express');
 var app = express();
 var favicon = require('serve-favicon');
-var helmet = require('helmet')
+var helmet = require('helmet');
 
 
 app.set('view engine', 'ejs');
