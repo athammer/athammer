@@ -12,6 +12,11 @@ app.set('view engine', 'ejs');
 app.use(helmet());
 app.use(favicon('./public/img/favicon.png'));
 app.use(express.static(__dirname + '/public'));
+
+app.get('/ping', function (req, res) {
+  res.send('successfully pinged');
+});
+
 app.use(middlewares.prettifyDomain);
 
 
