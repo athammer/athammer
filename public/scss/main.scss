@@ -7,6 +7,14 @@
     text-align: center;
 }
 img {
-    width: 50%;
-    height: auto;
+    width: 25%;
+    margin: 0 auto; 
+}
+div.picwrapper {
+    width: 100%;
+    text-align: center;
+}
+div.pic {
+    /* remove float:left here */
+    display: inline-block;
 }

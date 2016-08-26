@@ -1,11 +1,18 @@
 var express = require('express');
 var app = express();
+var subdomain = require('express-subdomain');
+var router = express.Router();
 var favicon = require('serve-favicon');
 var helmet = require('helmet');
 
+router.get('/', function(req, res) {
+    res.send('Welcome to our API!');
+});
+app.use(subdomain('api', router));
+
 var middlewares = require("./app/middleware/middleware.js");
 
-
+app.set('views', __dirname + '/views');
 app.set('view engine', 'ejs');
 
 
@@ -17,7 +24,7 @@ app.get('/ping', function (req, res) {
   res.send('successfully pinged');
 });
 
-app.use(middlewares.prettifyDomain);
+//app.use(middlewares.prettifyDomain);
 
 
 require('./app/controllers/routes/routes.js')(app);
