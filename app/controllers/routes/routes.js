@@ -21,6 +21,22 @@ module.exports = function(app){
         res.render('./pages/athammer.ejs');
     });
     
+    app.get('/aboutMe/hobbies', function(req, res) {
+        res.render('./pages/hobbies.ejs');
+    });
+    
+    app.get('/aboutMe/education', function(req, res) {
+        res.render('./pages/education.ejs');
+    });
+    
+    app.get('/aboutMe/boy-scouts', function(req, res) {
+        res.render('./pages/boy-scouts.ejs');
+    });
+    
+    app.get('/aboutMe/personal-blog', function(req, res) {
+        res.render('./pages/personal-blog.ejs');
+    });
+    
     app.get('/download', function(req, res) {
         var file = "public/pdf/Aaron Hammer's Resume.pdf"
         res.download(file); // Set disposition and send it.
