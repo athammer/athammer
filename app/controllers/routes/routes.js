@@ -33,6 +33,10 @@ module.exports = function(app){
         res.render('./pages/boy-scouts.ejs');
     });
     
+    app.get('/aboutMe/goals', function(req, res) {
+        res.render('./pages/goals.ejs');
+    });
+    
     app.get('/aboutMe/personal-blog', function(req, res) {
         res.render('./pages/personal-blog.ejs');
     });
