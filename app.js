@@ -5,10 +5,7 @@ var router = express.Router();
 var favicon = require('serve-favicon');
 var helmet = require('helmet');
 
-router.get('/', function(req, res) {
-    res.send('Welcome to our API!');
-});
-app.use(subdomain('api', router));
+
 
 var middlewares = require("./app/middleware/middleware.js");
 
@@ -20,9 +17,6 @@ app.use(helmet());
 app.use(favicon('./public/img/favicon.png'));
 app.use(express.static(__dirname + '/public'));
 
-app.get('/ping', function (req, res) {
-  res.send('successfully pinged');
-});
 
 //app.use(middlewares.prettifyDomain);
 

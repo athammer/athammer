@@ -24,7 +24,9 @@ module.exports = function(app){
     app.get('/projects/athammer', function(req, res) {
         res.render('./pages/projects/athammer.ejs');
     });
-    
+    app.get('/projects/eagle-scout', function(req, res) {
+        res.render('./pages/projects/eagle-scout.ejs');
+    });
     
     //ABOUTME
     app.get('/aboutMe/hobbies', function(req, res) {
