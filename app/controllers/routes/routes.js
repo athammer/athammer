@@ -12,44 +12,6 @@ module.exports = function(app){
 
 
 
-    //PROJECTS
-    app.get('/projects/13chan', function(req, res) {
-        res.render('./pages/projects/13chan.ejs');
-    });
-
-    app.get('/projects/ELCE', function(req, res) {
-        res.render('./pages/projects/ELCE.ejs');
-    });
-
-    app.get('/projects/athammer', function(req, res) {
-        res.render('./pages/projects/athammer.ejs');
-    });
-    app.get('/projects/eagle-scout', function(req, res) {
-        res.render('./pages/projects/eagle-scout.ejs');
-    });
-
-    //ABOUTME
-    app.get('/aboutMe/hobbies', function(req, res) {
-        res.render('./pages/aboutMe/hobbies.ejs');
-    });
-
-    app.get('/aboutMe/education', function(req, res) {
-        res.render('./pages/aboutMe/education.ejs');
-    });
-
-    app.get('/aboutMe/boy-scouts', function(req, res) {
-        res.render('./pages/aboutMe/boy-scouts.ejs');
-    });
-
-    app.get('/aboutMe/goals', function(req, res) {
-        res.render('./pages/aboutMe/goals.ejs');
-    });
-
-    app.get('/aboutMe/personal-blog', function(req, res) {
-        res.render('./pages/aboutMe/personal-blog.ejs');
-    });
-
-
     //OTHER
     app.get('/resume', function(req, res) {
         var file = "public/pdf/Aaron Hammer's Resume.pdf"
