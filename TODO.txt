@@ -1,0 +1,23 @@
+====================General Design Goals====================
+Create an aethesticaly pleasing website that highlights  my skills as a developer
+
+=====================Front and Back End=====================
+
+
+==========================Back End==========================
+
+
+==========================Front End==========================
+
+
+============================Other============================
+
+
+============================Ideas============================
+Left bar with "quick links" such as for my github, twitter, and anything else
+Top left corner will be the home button above the quick links
+Home page will lets users choose between projects, resume, hobbies, and skills
+projects page will let users choose between my projects
+skills can display skills i've learned, sql and such
+
+==========================Resources==========================
