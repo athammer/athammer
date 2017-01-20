@@ -21,3 +21,4 @@ projects page will let users choose between my projects
 skills can display skills i've learned, sql and such
 
 ==========================Resources==========================
+http://www.growingwiththeweb.com/2014/02/async-vs-defer-attributes.html --when to use defer vs async on html script links
