@@ -9,13 +9,13 @@ var helmet = require('helmet');
 
 var middlewares = require("./app/middleware/middleware.js");
 
-app.set('views', __dirname + '/views');
+//app.set('views', __dirname + '/views');
 app.set('view engine', 'ejs');
 
 
 app.use(helmet());
 app.use(favicon('./public/img/favicon.png'));
-app.use(express.static(__dirname + '/public'));
+app.use("/static", express.static(__dirname + '/public'));
 
 
 
