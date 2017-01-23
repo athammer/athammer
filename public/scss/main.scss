@@ -5,12 +5,12 @@
 }
 .left {
   position: absolute;
-  left:0; top:0px; bottom: 0;
-  width: 100px;
+  left:15px; top:0px; bottom: 0;
+  width: 90px;
 }
 .main {
   position: absolute;
-  left:100px; top:92px; right:0; bottom:0;
+  left:105px; top:92px; right:0; bottom:0;
 }
 
 .top { background: blue; }
@@ -21,8 +21,15 @@
   color: white;
 }
 .icons {
-  text-align: center
-
+  position: absolute;
+  text-align: center;
+  left: 5px;
+}
+.toggleBar {
+  position: absolute;
+  left:0; top:0px; bottom: 0;
+  width: 15px;
+  background: #191919;
 }
 .verticalLine {
   border-left: thick solid #ff0000;
