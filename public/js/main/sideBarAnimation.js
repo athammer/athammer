@@ -1,7 +1,7 @@
 
 var toggled = true;
 
-$("#toggleBar").click(function(){
+$("#left").click(function(){
   console.log("toggle clicked.")
   if(toggled) {
     toggled=false;

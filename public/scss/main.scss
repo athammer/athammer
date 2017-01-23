@@ -5,12 +5,12 @@
 }
 .left {
   position: absolute;
-  left:15px; top:0px; bottom: 0;
-  width: 90px;
+  left:0px; top:0px; bottom: 0;
+  width: 100px;
 }
 .main {
   position: absolute;
-  left:105px; top:92px; right:0; bottom:0;
+  left:100px; top:92px; right:0; bottom:0;
 }
 
 .top { background: blue; }
@@ -23,7 +23,7 @@
 .icons {
   position: absolute;
   text-align: center;
-  left: 5px;
+  left: 20px;
 }
 .toggleBar {
   position: absolute;
