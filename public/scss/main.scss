@@ -38,3 +38,15 @@
   text-align: center;
   background: #191919;
 }
+.noSpace {
+  content: " ";
+  display: block;
+  margin: 0px 0;
+  padding: 0px 0;
+}
+.offWhite {
+  color: #DEDEDE;
+}
+p.offWhite {
+    font-size: 10px;
+}
