@@ -6,16 +6,16 @@
 .left {
   position: absolute;
   left:0px; top:0px; bottom: 0;
-  width: 100px;
+  width: 85px;
 }
 .main {
   position: absolute;
-  left:20px; top:92px; right:0; bottom:0;
+  left:22px; top:92px; right:0; bottom:0;
 }
 
 .top { background: blue; }
 .left { /*background: black; */ }
-.main { background: yellow; }
+.main { /* background: yellow; */ }
 
 #side-bar-icon{
   color: white;
@@ -23,12 +23,18 @@
 .icons {
   position: absolute;
   text-align: center;
-  left: 15px; top:0px; bottom: 0;
+  left: 22px; top:0px; bottom: 0;
   background: black;
+  width: 100%;
+}
+#toggle{
+  text-align: center;
+  color: white;
 }
 .toggleBar {
   position: absolute;
   left:0; top:0px; bottom: 0;
-  width: 20px;
+  width: 22px;
+  text-align: center;
   background: #191919;
 }
