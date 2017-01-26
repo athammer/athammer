@@ -20,6 +20,9 @@
 #side-bar-icon{
   color: white;
 }
+#side-bar-icon:hover {
+  color: blue;
+}
 .icons {
   position: absolute;
   text-align: center;
@@ -49,4 +52,13 @@
 }
 p.offWhite {
     font-size: 10px;
+}
+.icon-group {
+  background: black;
+}
+.icon-group-active {
+  background: #666666;
+}
+a {
+  color: inherit;
 }
