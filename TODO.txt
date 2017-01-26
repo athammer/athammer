@@ -2,7 +2,7 @@
 Create an aethesticaly pleasing website that highlights  my skills as a developer
 
 =====================Front and Back End=====================
-
+Fix icons taking a whole second to load... cache or load locally?
 
 ==========================Back End==========================
 

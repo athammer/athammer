@@ -57,8 +57,15 @@ p.offWhite {
   background: black;
 }
 .icon-group-active {
-  background: #666666;
+  background: #323232;
 }
 a {
   color: inherit;
+}
+.verticalLine {
+  position: absolute;
+  right: -2px; top:0px; bottom: 0;
+  background: #580000;
+  color: #580000;
+  width: 2px;
 }
