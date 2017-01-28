@@ -1,5 +1,6 @@
 $( document ).ready(function() {
   var toggled = true;
+  var toggle1 = true;
 
   $(".toggleBar").click(function(){
     console.log("toggle clicked.")
@@ -16,8 +17,21 @@ $( document ).ready(function() {
     }
   });
 
+  
+  $(".left").mouseover(function(){
+    console.log("side bar hovered");
+    $(".left").animate({width: "85px"}, "fast");
+    // $(".left").css({
+    //   "width": "85px",
+    // });
+  });
 
-  // $( ".left" ).hover(function() {
-  //
-  // });
+  $(".left").mouseout(function(){
+    console.log("side bar left");
+    $(".left").animate({width: "55px"}, "fast");
+
+    // $(".left").css({
+    //   "width": "55px",
+    // });
+  });
 });
