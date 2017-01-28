@@ -37,14 +37,14 @@ $( document ).ready(function() {
       running = true;
       console.log("side bar hovered");
       $(".left").animate({width: "155px"}, "fast");
-      $("#home").append("<p class=\"side-bar-text sb\">Home</p>");
-      $("#about").append("<p class=\"side-bar-text sb\">About Me</p>");
-      $("#git").append("<p class=\"side-bar-text sb\">GitHub</p>");
-      $("#twitter").append("<p class=\"side-bar-text sb\">Twitter</p>");
-      $("#resume").append("<p class=\"side-bar-text sb\">Resume</p>");
-      $("#hobbies").append("<p class=\"side-bar-text sb\">Hobbies</p>");
-      $("#skills").append("<p class=\"side-bar-text sb\">Skills</p>");
-      $("#contact").append("<p class=\"side-bar-text sb\">Contact Me</p>");
+      $("#home").append(" Home");
+      $("#about").append(" About Me");
+      $("#git").append(" GitHub");
+      $("#twitter").append(" Twitter");
+      $("#resume").append(" Resume");
+      $("#hobbies").append(" Hobbies");
+      $("#skills").append(" Skills");
+      $("#contact").append(" Contact Me");
       $(".icons").css({
         "text-align": "left",
       });
