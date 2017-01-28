@@ -6,7 +6,7 @@
 .left {
   position: absolute;
   left:0px; top:0px; bottom: 0;
-  width: 85px;
+  width: 55px;
   z-index: 1;
   height: 100%;
 }
@@ -17,7 +17,7 @@
 
 .top { background: blue; }
 .left { /*background: black; */ }
-.main { /* background: yellow; */ }
+.main {  background: yellow;  }
 
 #side-bar-icon{
   color: white;
@@ -80,4 +80,12 @@ html, body {
 }
 body {
     position: relative;
+}
+.fa {
+  margin:0;
+  padding:0;
+}
+hr {
+  margin:0;
+  padding:0;
 }

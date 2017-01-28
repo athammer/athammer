@@ -12,7 +12,12 @@ $( document ).ready(function() {
       toggled=true;
       $(".icon-container").show();
       $("#toggle").attr('class', 'fa fa-toggle-on');
-      $(".icons").animate({width: "85px"}, "fast");
+      $(".icons").animate({width: "55px"}, "fast");
     }
   });
+
+
+  // $( ".left" ).hover(function() {
+  //
+  // });
 });

@@ -8,6 +8,8 @@ $( document ).ready(function() {
     $(".icon-group-hobbies").attr('class', 'icon-group-active');
   }else if (currentLocation == "/skills") {
     $(".icon-group-skills").attr('class', 'icon-group-active');
+  }else if (currentLocation == "/skills") {
+    $(".icon-group-contact").attr('class', 'icon-group-active');
   }
 
 });
