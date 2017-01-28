@@ -37,20 +37,20 @@ $( document ).ready(function() {
       running = true;
       console.log("side bar hovered");
       $(".left").animate({width: "155px"}, "fast");
-      $("#home").append(" Home");
-      $("#about").append(" About Me");
-      $("#git").append(" GitHub");
-      $("#twitter").append(" Twitter");
-      $("#resume").append(" Resume");
-      $("#hobbies").append(" Hobbies");
-      $("#skills").append(" Skills");
-      $("#contact").append(" Contact Me");
-      $(".icons").css({
-        "text-align": "left",
-      });
       $(".left:animated").promise().done(function() {
         toggle1 = false;
         running = false;
+        $("#home").append("<span class=\"side-bar-text\"> Home</span>");
+        $("#about").append("<span class=\"side-bar-text\"> About Me</span>");
+        $("#git").append("<span class=\"side-bar-text\"> GitHub</span>");
+        $("#twitter").append("<span class=\"side-bar-text\"> Twitter</span>");
+        $("#resume").append("<span class=\"side-bar-text\"> Resume</span>");
+        $("#hobbies").append("<span class=\"side-bar-text\"> Hobbies</span>");
+        $("#skills").append("<span class=\"side-bar-text\"> Skills</span>");
+        $("#contact").append("<span class=\"side-bar-text\"> Contact Me</span>");
+        $(".icons").css({
+          "text-align": "left",
+        });
       });
     }
   });
