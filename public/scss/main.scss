@@ -29,7 +29,11 @@
 }
 .main {
   position: absolute;
-  left:20px; top:92px; right:0; bottom:0;
+  left: 20px; top:92px; right:0; bottom:0;
+}
+#main-content {
+  position: absolute;
+  left: 155-20px;
 }
 
 .top { background: rgba(11, 11, 33, 0.89); }
