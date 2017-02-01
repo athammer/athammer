@@ -36,7 +36,7 @@ $( document ).ready(function() {
     if(toggle1 && !running && open){
       running = true;
       console.log("side bar hovered");
-      $(".left").animate({width: "155px"}, "fast");
+      $(".left").animate({width: "135px"}, "fast");
       $(".left:animated").promise().done(function() {
         toggle1 = false;
         running = false;

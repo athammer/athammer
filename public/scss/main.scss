@@ -1,10 +1,27 @@
 .top {
-  position: absolute;
-  left:0; right:0;
+  position: fixed;
+  left:0px; right:0px;
   height: 92px;
 }
-.left {
+.header {
   position: absolute;
+  height: 100%;
+  left: 155px;
+  color: white;
+}
+#hr-header-top {
+  position: absolute;
+  color: white;
+  left: 0;
+  width: 100%;
+  margin: 0;
+}
+#hr-header-bot {
+  @extend #hr-header-top;
+  bottom: 0 !important;
+}
+.left {
+  position: fixed;
   left:0px; top:0px; bottom: 0;
   width: 55px;
   z-index: 1;
@@ -15,9 +32,9 @@
   left:20px; top:92px; right:0; bottom:0;
 }
 
-.top { background: blue; }
+.top { background: rgba(11, 11, 33, 0.89); }
 .left { /*background: black; */ }
-.main {  background: yellow;  }
+.main {  background: gray;  }
 
 #side-bar-icon{
   color: white;

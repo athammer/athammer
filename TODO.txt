@@ -24,3 +24,4 @@ when on a page the current page icon is highlighted somehow
 ==========================Resources==========================
 http://www.growingwiththeweb.com/2014/02/async-vs-defer-attributes.html --when to use defer vs async on html script links
 http://stackoverflow.com/questions/1034621/get-current-url-in-web-browser
+http://stackoverflow.com/questions/84378/div-class-vs-id/84416#84416
