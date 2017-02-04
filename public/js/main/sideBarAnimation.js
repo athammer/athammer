@@ -33,7 +33,10 @@ $( document ).ready(function() {
   $("div.icons").mouseover(function(){
     var pixels = $(".icons").css("width");
     var open = parseInt(pixels, 10) > 54;
-    if(toggle1 && !running && open){
+    var isHoveredonPageReload = $('.icon-group-active').is(":hover"); // returns true or false
+    var onBorder = $('.verticalLine').is(":hover"); // returns true or false
+    console.log(isHoveredonPageReload);
+    if(toggle1 && !running && open && !isHoveredonPageReload && !onBorder){
       running = true;
       console.log("side bar hovered");
       $(".left").animate({width: "135px"}, "fast");
