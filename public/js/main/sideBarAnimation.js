@@ -45,6 +45,7 @@ $( document ).ready(function() {
         $("#git").append("<span class=\"side-bar-text\"> GitHub</span>");
         $("#twitter").append("<span class=\"side-bar-text\"> Twitter</span>");
         $("#resume").append("<span class=\"side-bar-text\"> Resume</span>");
+        $("#projects").append("<span class=\"side-bar-text\"> Projects</span>");
         $("#hobbies").append("<span class=\"side-bar-text\"> Hobbies</span>");
         $("#skills").append("<span class=\"side-bar-text\"> Skills</span>");
         $("#contact").append("<span class=\"side-bar-text\"> Contact Me</span>");
