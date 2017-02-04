@@ -6,7 +6,7 @@
 .header {
   position: absolute;
   height: 100%;
-  left: 155px;
+  left: 157 - 80px;
   color: white;
 }
 #hr-header-top {
@@ -33,7 +33,7 @@
 }
 #main-content {
   position: absolute;
-  left: 155-20px;
+  left: 157-20px;
 }
 
 .top { background: rgba(11, 11, 33, 0.89); }
@@ -120,4 +120,9 @@ p {
 }
 * {
   font-family: Verdana, Geneva, sans-serif;
+}
+@media screen and (max-device-width: 676px) {
+  h1 {
+    font-size: 33px;
+  }
 }

@@ -37,6 +37,7 @@ $( document ).ready(function() {
       running = true;
       console.log("side bar hovered");
       $(".left").animate({width: "135px"}, "fast");
+      $(".header").animate({left: "157px"}, "fast");
       $(".left:animated").promise().done(function() {
         toggle1 = false;
         running = false;
@@ -64,6 +65,7 @@ $( document ).ready(function() {
       console.log("side bar left");
       $( ".side-bar-text" ).remove();
       $(".left").animate({width: "55px"}, "fast");
+      $(".header").animate({left: "77px"}, "slow");
       $(".icons").css({
         "text-align": "center",
       });
@@ -85,6 +87,7 @@ $( document ).ready(function() {
       console.log("side bar left");
       $( ".side-bar-text" ).remove();
       $(".left").animate({width: "55px"}, "fast");
+      $(".header").animate({left: "77px"}, "slow");
       $(".icons").css({
         "text-align": "center",
       });
