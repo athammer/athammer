@@ -44,7 +44,7 @@
   color: white;
 }
 #side-bar-icon:hover {
-  color: blue;
+  color: #ADD8E6;
 }
 .icons {
   position: absolute;
@@ -86,6 +86,10 @@ p.offWhite {
 a {
   color: inherit;
 }
+.reverse {
+  unicode-bidi: bidi-override;
+  direction: rtl;
+}
 .verticalLine {
   position: absolute;
   right: -2px; top:0px; bottom: 0;
@@ -122,7 +126,7 @@ p {
   font-family: Verdana, Geneva, sans-serif;
 }
 @media screen and (max-device-width: 676px) {
-  h1 {
+  h1#header-text {
     font-size: 33px;
   }
 }
