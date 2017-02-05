@@ -39,7 +39,7 @@ $( document ).ready(function() {
 
 
   $("div.icons").mouseover(function(){
-    var pixels = $(".icons").css("width");
+    var pixels = $(".icon-container").css("width");
     var open = parseInt(pixels, 10) > 54;
     var isHoveredonPageReload = $('.icon-group-active').is(":hover"); // returns true or false
     var onBorder = $('.verticalLine').is(":hover"); // returns true or false
@@ -69,7 +69,7 @@ $( document ).ready(function() {
   });
 
   $("div.icons").mouseleave(function(){ //mouseout vs mouseleave, former runs in children, mouseleave doesnt
-    var pixels = $(".icons").css("width");
+    var pixels = $(".icon-container").css("width");
     var open = parseInt(pixels, 10) > 54;
     if(!toggle1 && !running && open && !jQuery.browser.mobile){
       running = true;
@@ -91,7 +91,7 @@ $( document ).ready(function() {
   //ewwww, fixed frame being stuck open, even though scrolling on it will fix it(kinda)
   var i = 0;
   function fixSB() {
-    var pixels = $(".icons").css("width");
+    var pixels = $(".icon-container").css("width");
     var open = parseInt(pixels, 10) > 54;
     if(!$('div.icons').is(":hover") && !toggle1 && !running && open && !jQuery.browser.mobile){
       running = true;
@@ -114,7 +114,7 @@ $( document ).ready(function() {
 
   $(document).click(function(e) {
     if ( $(e.target).closest('div.icons').length === 1 ) {
-      var pixels = $(".icons").css("width");
+      var pixels = $(".icon-container").css("width");
       var open = parseInt(pixels, 10) > 54;
       if(open && jQuery.browser.mobile && !running){
         console.log("asdf")
@@ -129,6 +129,8 @@ $( document ).ready(function() {
           toggle1 = true;
           running = false;
         });
+      }else if(!open && jQuery.browser.mobile && !running){
+        console.log("nope1");
       }else{
         console.log("nope");
       }
