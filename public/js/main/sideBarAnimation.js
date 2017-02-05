@@ -116,7 +116,7 @@ $( document ).ready(function() {
     if ( $(e.target).closest('div.icons').length === 1 ) {
       var pixels = $(".icons").css("width");
       var open = parseInt(pixels, 10) > 54;
-      if(open && jQuery.browser.mobile){
+      if(open && jQuery.browser.mobile && !running){
         console.log("asdf")
         running = true;
         $( ".side-bar-text" ).remove();
