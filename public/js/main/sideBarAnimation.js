@@ -113,7 +113,7 @@ $( document ).ready(function() {
 
 
   $(document).click(function(e) {
-    if ( $(e.target).closest('div.icons').length === 0 ) {
+    if ( $(e.target).closest('div.icons').length === 1 ) {
       alert("Hello! I am an alert box!!");
     }
   });
