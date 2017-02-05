@@ -117,6 +117,7 @@ $( document ).ready(function() {
       var pixels = $(".icons").css("width");
       var open = parseInt(pixels, 10) > 54;
       if(open && !running){
+        console.log("asdf")
         running = true;
         $( ".side-bar-text" ).remove();
         $(".left").animate({width: "55px"}, "fast");
@@ -128,6 +129,8 @@ $( document ).ready(function() {
           toggle1 = true;
           running = false;
         });
+      }else{
+        console.log("nope");
       }
 
     }
