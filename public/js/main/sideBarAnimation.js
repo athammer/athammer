@@ -44,7 +44,7 @@ $( document ).ready(function() {
     var isHoveredonPageReload = $('.icon-group-active').is(":hover"); // returns true or false
     var onBorder = $('.verticalLine').is(":hover"); // returns true or false
     console.log(isHoveredonPageReload);
-    if(toggle1 && !running && open && !isHoveredonPageReload && !onBorder){
+    if(toggle1 && !running && !open && !isHoveredonPageReload && !onBorder){
       running = true;
       console.log("side bar hovered");
       $(".left").animate({width: "135px"}, "fast");
