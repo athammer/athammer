@@ -40,7 +40,7 @@ $( document ).ready(function() {
 
   $("div.icons").mouseover(function(){
     var pixels = $(".left").css("width");
-    var open = parseInt(pixels, 10) > 55;
+    var open = parseInt(pixels, 10) > 56;
     var isHoveredonPageReload = $('.icon-group-active').is(":hover"); // returns true or false
     var onBorder = $('.verticalLine').is(":hover"); // returns true or false
     console.log(isHoveredonPageReload);
@@ -70,7 +70,7 @@ $( document ).ready(function() {
 
   $("div.icons").mouseleave(function(){ //mouseout vs mouseleave, former runs in children, mouseleave doesnt
     var pixels = $(".left").css("width");
-    var open = parseInt(pixels, 10) > 55;
+    var open = parseInt(pixels, 10) > 56;
     if(!toggle1 && !running && open && !jQuery.browser.mobile){
       running = true;
       console.log("side bar left");
@@ -92,7 +92,7 @@ $( document ).ready(function() {
   var i = 0;
   function fixSB() {
     var pixels = $(".left").css("width");
-    var open = parseInt(pixels, 10) > 55;
+    var open = parseInt(pixels, 10) > 56;
     if(!$('div.icons').is(":hover") && !toggle1 && !running && open && !jQuery.browser.mobile){
       running = true;
       console.log("side bar left");
@@ -115,7 +115,7 @@ $( document ).ready(function() {
   $(document).click(function(e) {
     if ( $(e.target).closest('div.icons').length === 1 ) {
       var pixels = $(".left").css("width");
-      var open = parseInt(pixels, 10) > 55;
+      var open = parseInt(pixels, 10) > 56;
       if(open && jQuery.browser.mobile && !running){
         console.log("asdf")
         running = true;
