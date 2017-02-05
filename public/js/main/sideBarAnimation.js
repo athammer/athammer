@@ -114,7 +114,22 @@ $( document ).ready(function() {
 
   $(document).click(function(e) {
     if ( $(e.target).closest('div.icons').length === 1 ) {
-      alert("Hello! I am an alert box!!");
+      var pixels = $(".icons").css("width");
+      var open = parseInt(pixels, 10) > 54;
+      if(open && !running){
+        running = true;
+        $( ".side-bar-text" ).remove();
+        $(".left").animate({width: "55px"}, "fast");
+        $(".header").animate({left: "77px"}, "slow");
+        $(".icons").css({
+          "text-align": "center",
+        });
+        $(".left:animated").promise().done(function() {
+          toggle1 = true;
+          running = false;
+        });
+      }
+
     }
   });
 });
