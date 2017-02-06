@@ -15,7 +15,6 @@ $( document ).ready(function() {
   var running = false;
 
   $(".toggleBar").click(function(){
-    console.log("toggle clicked.")
     if(toggled) {
       toggled=false;
       running=true;
@@ -38,15 +37,15 @@ $( document ).ready(function() {
   });
 
 
-  $("div.icons").mouseover(function(){
+  $(".left").on('click', '.div.icons', function(){
+    console.log("open");
     var pixels = $(".left").css("width");
     var open = parseInt(pixels, 10) > 56;
     var isHoveredonPageReload = $('.icon-group-active').is(":hover"); // returns true or false
     var onBorder = $('.verticalLine').is(":hover"); // returns true or false
-    console.log(isHoveredonPageReload);
+    console.log(toggle1 + " " + running + " " + open + " " + isHoveredonPageReload + " " + onBorder);
     if(toggle1 && !running && !open && !isHoveredonPageReload && !onBorder){
       running = true;
-      console.log("side bar hovered");
       $(".left").animate({width: "135px"}, "fast");
       $(".header").animate({left: "157px"}, "fast");
       $(".left:animated").promise().done(function() {
@@ -73,7 +72,6 @@ $( document ).ready(function() {
     var open = parseInt(pixels, 10) > 56;
     if(!toggle1 && !running && open && !jQuery.browser.mobile){
       running = true;
-      console.log("side bar left");
       $( ".side-bar-text" ).remove();
       $(".left").animate({width: "55px"}, "fast");
       $(".header").animate({left: "77px"}, "slow");
@@ -95,7 +93,6 @@ $( document ).ready(function() {
     var open = parseInt(pixels, 10) > 56;
     if(!$('div.icons').is(":hover") && !toggle1 && !running && open && !jQuery.browser.mobile){
       running = true;
-      console.log("side bar left");
       $( ".side-bar-text" ).remove();
       $(".left").animate({width: "55px"}, "fast");
       $(".header").animate({left: "77px"}, "slow");
@@ -113,11 +110,11 @@ $( document ).ready(function() {
 
 
   $(document).click(function(e) {
-    if ( $(e.target).closest('div.icons').length === 1 ) {
+    if ( $(e.target).closest('div.icon-container').length === 0 ) {
       var pixels = $(".left").css("width");
       var open = parseInt(pixels, 10) > 56;
+      console.log(open + " " + running);
       if(open && jQuery.browser.mobile && !running){
-        console.log("asdf")
         running = true;
         $( ".side-bar-text" ).remove();
         $(".left").animate({width: "55px"}, "fast");
@@ -129,11 +126,8 @@ $( document ).ready(function() {
           toggle1 = true;
           running = false;
         });
-      }else if(!open && jQuery.browser.mobile && !running){
-        console.log("nope1");
-      }else{
-        console.log("nope");
       }
+
 
     }
   });
