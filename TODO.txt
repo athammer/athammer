@@ -3,7 +3,7 @@ Create an aethesticaly pleasing website that highlights  my skills as a develope
 
 =====================Front and Back End=====================
 Fix icons taking a whole second to load... cache or load locally?
-
+Make mobile side bar links disable so when you press the side bar you get the bar to expand and see what each icon is
 ==========================Back End==========================
 
 

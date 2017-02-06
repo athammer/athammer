@@ -37,14 +37,12 @@ $( document ).ready(function() {
   });
 
 
-  $(".left").on('click', '.div.icons', function(){
-    console.log("open");
+  $("div.icons").mouseover(function(){
     var pixels = $(".left").css("width");
     var open = parseInt(pixels, 10) > 56;
     var isHoveredonPageReload = $('.icon-group-active').is(":hover"); // returns true or false
     var onBorder = $('.verticalLine').is(":hover"); // returns true or false
-    console.log(toggle1 + " " + running + " " + open + " " + isHoveredonPageReload + " " + onBorder);
-    if(toggle1 && !running && !open && !isHoveredonPageReload && !onBorder){
+    if(toggle1 && !running && !open && !isHoveredonPageReload && !onBorder && !jQuery.browser.mobile){
       running = true;
       $(".left").animate({width: "135px"}, "fast");
       $(".header").animate({left: "157px"}, "fast");
@@ -115,6 +113,7 @@ $( document ).ready(function() {
       var open = parseInt(pixels, 10) > 56;
       console.log(open + " " + running);
       if(open && jQuery.browser.mobile && !running){
+        console.log("close")
         running = true;
         $( ".side-bar-text" ).remove();
         $(".left").animate({width: "55px"}, "fast");
@@ -127,8 +126,33 @@ $( document ).ready(function() {
           running = false;
         });
       }
+    }
+  });
 
 
+  $(".left").on('click', 'div.icons', function() {
+    var pixels = $(".left").css("width");
+    var open = parseInt(pixels, 10) > 56;
+    if(!open && jQuery.browser.mobile && !running){
+      running = true;
+      $(".left").animate({width: "135px"}, "fast");
+      $(".header").animate({left: "157px"}, "fast");
+      $(".left:animated").promise().done(function() {
+        toggle1 = false;
+        running = false;
+        $("#home").append("<span class=\"side-bar-text\"> Home</span>");
+        $("#about").append("<span class=\"side-bar-text\"> About Me</span>");
+        $("#git").append("<span class=\"side-bar-text\"> GitHub</span>");
+        $("#twitter").append("<span class=\"side-bar-text\"> Twitter</span>");
+        $("#resume").append("<span class=\"side-bar-text\"> Resume</span>");
+        $("#projects").append("<span class=\"side-bar-text\"> Projects</span>");
+        $("#hobbies").append("<span class=\"side-bar-text\"> Hobbies</span>");
+        $("#skills").append("<span class=\"side-bar-text\"> Skills</span>");
+        $("#contact").append("<span class=\"side-bar-text\"> Contact Me</span>");
+        $(".icons").css({
+          "text-align": "left",
+        });
+      });
     }
   });
 });
