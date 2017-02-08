@@ -52,7 +52,8 @@ $( document ).ready(function() {
         $("#home").append("<span class=\"side-bar-text\"> Home</span>");
         $("#about").append("<span class=\"side-bar-text\"> About Me</span>");
         $("#git").append("<span class=\"side-bar-text\"> GitHub</span>");
-        $("#twitter").append("<span class=\"side-bar-text\"> Twitter</span>");
+        $("#linkedin").append("<span class=\"side-bar-text\"> Linked</span>");
+        $("#twitter").append("<span class=\"side-bar-text\"> LinkedIn</span>");
         $("#resume").append("<span class=\"side-bar-text\"> Resume</span>");
         $("#projects").append("<span class=\"side-bar-text\"> Projects</span>");
         $("#hobbies").append("<span class=\"side-bar-text\"> Hobbies</span>");
