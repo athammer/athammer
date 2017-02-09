@@ -112,9 +112,7 @@ $( document ).ready(function() {
     if ( $(e.target).closest('div.icon-container').length === 0 ) {
       var pixels = $(".left").css("width");
       var open = parseInt(pixels, 10) > 56;
-      console.log(open + " " + running);
       if(open && jQuery.browser.mobile && !running){
-        console.log("close")
         running = true;
         $( ".side-bar-text" ).remove();
         $(".left").animate({width: "55px"}, "fast");
@@ -156,4 +154,80 @@ $( document ).ready(function() {
       });
     }
   });
+
+  if(jQuery.browser.mobile){
+    $('a#a-about').on("click", function (e) {
+      var pixels = $(".left").css("width");
+      var open = parseInt(pixels, 10) > 56;
+      if(!open){
+        e.preventDefault();
+      }
+    });
+
+    $('a#a-git').on("click", function (e) {
+      var pixels = $(".left").css("width");
+      var open = parseInt(pixels, 10) > 56;
+      if(!open){
+        e.preventDefault();
+      }
+    });
+
+    $('a#a-linkedin').on("click", function (e) {
+      var pixels = $(".left").css("width");
+      var open = parseInt(pixels, 10) > 56;
+      if(!open){
+        e.preventDefault();
+      }
+    });
+
+    $('a#a-twitter').on("click", function (e) {
+      var pixels = $(".left").css("width");
+      var open = parseInt(pixels, 10) > 56;
+      if(!open){
+        e.preventDefault();
+      }
+    });
+
+    $('a#a-resume').on("click", function (e) {
+      var pixels = $(".left").css("width");
+      var open = parseInt(pixels, 10) > 56;
+      if(!open){
+        e.preventDefault();
+      }
+    });
+
+    $('a#a-projects').on("click", function (e) {
+      var pixels = $(".left").css("width");
+      var open = parseInt(pixels, 10) > 56;
+      if(!open){
+        e.preventDefault();
+      }
+    });
+
+    $('a#a-hobbies').on("click", function (e) {
+      var pixels = $(".left").css("width");
+      var open = parseInt(pixels, 10) > 56;
+      if(!open){
+        e.preventDefault();
+      }
+    });
+
+    $('a#a-skills').on("click", function (e) {
+      var pixels = $(".left").css("width");
+      var open = parseInt(pixels, 10) > 56;
+      if(!open){
+        e.preventDefault();
+      }
+    });
+
+    $('a#a-contact').on("click", function (e) {
+      var pixels = $(".left").css("width");
+      var open = parseInt(pixels, 10) > 56;
+      if(!open){
+        e.preventDefault();
+      }
+    });
+
+  }
+
 });
