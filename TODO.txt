@@ -3,12 +3,11 @@ Create an aethesticaly pleasing website that highlights  my skills as a develope
 
 =====================Front and Back End=====================
 Fix icons taking a whole second to load... cache or load locally?
-Make mobile side bar links disable so when you press the side bar you get the bar to expand and see what each icon is
 ==========================Back End==========================
 
 
 ==========================Front End==========================
-
+Create Parallax pages 
 
 ============================Other============================
 
@@ -26,3 +25,4 @@ http://www.growingwiththeweb.com/2014/02/async-vs-defer-attributes.html --when t
 http://stackoverflow.com/questions/1034621/get-current-url-in-web-browser
 http://stackoverflow.com/questions/84378/div-class-vs-id/84416#84416
 https://www.youtube.com/watch?v=zv0kZKC6GAM
+https://en.wikipedia.org/wiki/Parallax
