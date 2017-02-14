@@ -7,7 +7,7 @@ Fix icons taking a whole second to load... cache or load locally?
 
 
 ==========================Front End==========================
-Create Parallax pages 
+Create Parallax pages
 
 ============================Other============================
 
@@ -26,3 +26,5 @@ http://stackoverflow.com/questions/1034621/get-current-url-in-web-browser
 http://stackoverflow.com/questions/84378/div-class-vs-id/84416#84416
 https://www.youtube.com/watch?v=zv0kZKC6GAM
 https://en.wikipedia.org/wiki/Parallax
+http://www.w3schools.com/howto/howto_css_parallax.asp
+https://codepen.io/anon/pen/pRGROy //footer at the bottom but not fixed
