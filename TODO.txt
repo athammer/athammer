@@ -28,3 +28,5 @@ https://www.youtube.com/watch?v=zv0kZKC6GAM
 https://en.wikipedia.org/wiki/Parallax
 http://www.w3schools.com/howto/howto_css_parallax.asp
 https://codepen.io/anon/pen/pRGROy //footer at the bottom but not fixed
+http://codepen.io/samdbeckham/pen/OPXPNp
+http://1stwebdesigner.com/parallax-scrolling-tutorial/
