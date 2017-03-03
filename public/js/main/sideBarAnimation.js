@@ -39,10 +39,10 @@ $( document ).ready(function() {
 
   $("div.icons").mouseover(function(){
     var pixels = $(".left").css("width");
-    var open = parseInt(pixels, 10) > 56;
+    var open = parseInt(pixels, 10) > 25;
     var isHoveredonPageReload = $('.icon-group-active').is(":hover"); // returns true or false
     var onBorder = $('.verticalLine').is(":hover"); // returns true or false
-    if(toggle1 && !running && !open && !isHoveredonPageReload && !onBorder && !jQuery.browser.mobile){
+    if(toggle1 && !running && open && !isHoveredonPageReload && !onBorder && !jQuery.browser.mobile){
       running = true;
       $(".left").animate({width: "135px"}, "fast");
       $(".header").animate({left: "157px"}, "fast");
