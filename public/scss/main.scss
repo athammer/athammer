@@ -56,6 +56,7 @@ body {
 }
 #main-content {
   position: absolute;
+  text-align: center; 
   left: 157-20px;
   height: 100%;
   width: 75%;
@@ -63,7 +64,7 @@ body {
 
 .top { background: rgba(11, 11, 33, 0.89); }
 .left { /*background: black; */ }
-.main { background: gray;  }
+.main { background: #f7fafd;  }
 .footer {  background: gray;  }
 
 #side-bar-icon{
