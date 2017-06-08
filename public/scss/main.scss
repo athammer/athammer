@@ -1,3 +1,4 @@
+
 html {
   /* To make use of full height of page*/
   min-height: 100%;
@@ -6,6 +7,7 @@ html {
 body {
   min-height: 100%;
   margin: 0;
+  font-family: "Courier";
 }
 .top {
   position: fixed;
@@ -56,10 +58,14 @@ body {
 }
 #main-content {
   position: absolute;
-  text-align: center; 
+  text-align: center;
   left: 157-20px;
   height: 100%;
   width: 75%;
+
+}
+.extraLineH {
+  line-height: 140%;
 }
 
 .top { background: rgba(11, 11, 33, 0.89); }

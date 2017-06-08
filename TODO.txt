@@ -19,6 +19,7 @@ Home page will lets users choose between projects, resume, hobbies, and skills -
 projects page will let users choose between my projects
 skills can display skills i've learned, sql and such
 when on a page the current page icon is highlighted somehow
+https://macarthur.me/typeit/docs/
 
 ==========================Resources==========================
 http://www.growingwiththeweb.com/2014/02/async-vs-defer-attributes.html --when to use defer vs async on html script links
