@@ -64,6 +64,9 @@ body {
   width: 75%;
 
 }
+.text-left {
+  text-align: left;
+}
 .extraLineH {
   line-height: 140%;
 }
@@ -190,6 +193,16 @@ p {
   }
 }
 img {
+  margin:0;
+  padding:0;
+}
+.img-left {
+  float: left;
+}
+.img-wieght {
+  margin: auto;
+}
+.no-margin {
   margin:0;
   padding:0;
 }

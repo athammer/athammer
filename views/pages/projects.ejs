@@ -14,10 +14,41 @@
 
     <div id="main-content">
       <h1>Projects</h1>
-      <h3>13chan.co</h3>
-      <h3>Personal Website</h3>
-      <h3>Chrome Group Notifier Extension</h3>
-      <h3>Java Based Clue</h3>
+      <br />
+
+      <h1>13chan.co</h1>
+      <hr class="no-margin"/>
+      <br />
+      <img class="img-left extraLineH" src="/static/img/13chan.png" alt="13chan" height="250px">
+      <div class="text-left no-margin">
+        <h2>&nbsp&nbsp Idea</h2>
+        <h3>
+           13chan was created out of responce of the fincaial troubles of 4chan and the idea of creating a semi-anonymous ecosystem that let
+          user's run the website with the admin's job simply being cleaning up and enforcing rules.
+        </h3>
+
+        <h2>&nbsp&nbsp Design</h2>
+        <h3>
+          &nbsp&nbsp&nbsp The design was very challenging, thankfully there were several sites I could look for inspiration and launch my own ideas from that.
+          Anonymous online communities highly value full anonyomity and free speach, so this heavily influenced design of the website. This often trumps user experience and other
+          cornerstones of many modern websites odly enough. While UX was placed highly it was crusail that the site be simple, safe, and not invade the user's
+          privacy. TLS was obvouisly the first step in achieving this and I worked to quickly get a certificate and create middleware to reroute all non-sercured
+          traffic to a secured connection. Next was deciding how the user would be identified and stay logged in when they moved to another webpage. To solve this
+          I used sessions. This presented a problem, I would use mongodb to store my user's data and sessions but and the website being open sourced would mean
+          the connection url to the database would be public unless I removed it each push. This was solved with enviromental variables in amazon's AWS.
+
+        </h3>
+
+        <h2>&nbsp&nbsp Features</h2>
+        <p>
+
+        </p>
+      </div>
+
+
+      <h1>Personal Website</h1>
+      <h1>Chrome Group Notifier Extension</h1>
+      <h1>Java Based Clue</h1>
 
     </div>
   </div>
@@ -25,9 +56,3 @@
 </body>
 
 </html>
-
-
-$(document).ready(function()
-{
-    console.log("asdf");
-})
