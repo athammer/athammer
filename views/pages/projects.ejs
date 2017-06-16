@@ -23,26 +23,45 @@
       <div class="text-left no-margin">
         <h2>&nbsp&nbsp Idea</h2>
         <h3>
-           13chan was created out of responce of the fincaial troubles of 4chan and the idea of creating a semi-anonymous ecosystem that let
+           &nbsp&nbsp&nbsp 13chan was created out of responce of the fincaial troubles of 4chan and the idea of creating a semi-anonymous ecosystem that let
           user's run the website with the admin's job simply being cleaning up and enforcing rules.
         </h3>
 
         <h2>&nbsp&nbsp Design</h2>
         <h3>
-          &nbsp&nbsp&nbsp The design was very challenging, thankfully there were several sites I could look for inspiration and launch my own ideas from that.
+          &nbsp&nbsp&nbsp The design was very challenging, thankfully there were several sites I could look for inspiration and launch my own ideas from that. The site
+          would consist of different levels of anonymity ranging from using usernames, to full anonymity were only randomly generated IDs tied to their session would be displayed.
           Anonymous online communities highly value full anonyomity and free speach, so this heavily influenced design of the website. This often trumps user experience and other
           cornerstones of many modern websites odly enough. While UX was placed highly it was crusail that the site be simple, safe, and not invade the user's
-          privacy. TLS was obvouisly the first step in achieving this and I worked to quickly get a certificate and create middleware to reroute all non-sercured
-          traffic to a secured connection. Next was deciding how the user would be identified and stay logged in when they moved to another webpage. To solve this
-          I used sessions. This presented a problem, I would use mongodb to store my user's data and sessions but and the website being open sourced would mean
-          the connection url to the database would be public unless I removed it each push. This was solved with enviromental variables in amazon's AWS.
-
+          privacy. The website is designed to avoid the typical social media look as much as possible to avoid off putting users. Another critical design decision was how to
+          identify users and let them log in. It was decided to let users register with an email then tying them with a name but letting them change their email.
+          This was done so user's cannot change their identity and grief and for simplicity. User's would be able to create a board and costumize
+          it in regards to level of anonymity, file exentions allowed, and letting them rework some css. These user created boards would have their own subdomain of "b" (b for boards)
+          for simplicity and avoid duplicate pages such as a user creating the board "/contact-us" or something similar.
         </h3>
 
-        <h2>&nbsp&nbsp Features</h2>
-        <p>
 
-        </p>
+        <h2>&nbsp&nbsp Current Features</h2>
+        <h3>
+          <ul>
+            <li>Sessions were used, which I later regreted it would cause unnessisary server strain compared to tokens.</li>
+            <li>Mongodb was chosen for it's scalibity, documenation, and support within the Node.js community.</li>
+            <li>TSL was used for more secruity and for the appearance of a more secure website. The website forces users to use https:// vs http:// by redirect.</li>
+            <li>Email verification is currently used for users. Email verification is done through the backend creating a key that expires in thirty days (can be resent)
+            then sending an email to the user with they unique key in the url. When clicked by the logged in user it is updated in the database that the user if verified.</li>
+            <li>Flash messages are used to send updates from the backend to the front, for example the username of the user when logged in and error messages.</li>
+            <li>Dynamic user urls.</li>
+            <li>Gulp automating scss complication</li>
+            <li>User premission access</li>
+            <li>User's ability to change email and password.</li>
+            <li>Ability to create boards with a costum path and the ability to see said board.</li>
+          </ul>
+        </h3>
+
+        <h2>&nbsp&nbsp Status</h2>
+        <h3>
+          On Hold, not completed.
+        </h3>
       </div>
 
 
