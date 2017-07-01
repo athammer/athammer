@@ -11,6 +11,9 @@ module.exports = function(app){
     app.get('/contact', function(req, res) {
         res.render('./pages/contact.ejs');
     });
+    // app.post('/contact', function(req, res) {
+    //     res.render('./pages/contact.ejs');
+    // });
     app.get('/hobbies', function(req, res) {
         res.render('./pages/hobbies.ejs');
     });
