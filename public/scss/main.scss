@@ -54,15 +54,15 @@ a:link {
   height: -moz-calc(100% - 92px);
   height: calc(100% - 92px);
   width: 100%;
-  width: -webkit-calc(100% - 20px);
-  width: -moz-calc(100% - 20px);
-  width: calc(100% - 20px);
+  width: -webkit-calc(100% + 137px);
+  width: -moz-calc(100% + 137px);
+  width: calc(100% + 137px);
   overflow: visible;
 }
 #main-content {
   position: absolute;
   text-align: center;
-  left: 157-20px;
+  left: 87-20px;
   height: 100%;
   width: 75%;
 
