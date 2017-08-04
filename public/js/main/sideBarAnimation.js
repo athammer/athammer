@@ -58,6 +58,7 @@ $( document ).ready(function() {
         $("#projects").append("<span class=\"side-bar-text\"> Projects</span>");
         $("#hobbies").append("<span class=\"side-bar-text\"> Hobbies</span>");
         $("#skills").append("<span class=\"side-bar-text\"> Skills</span>");
+        $("#trading").append("<span class=\"side-bar-text\"> Trading</span>");
         $("#contact").append("<span class=\"side-bar-text\"> Contact Me</span>");
         $(".icons").css({
           "text-align": "left",

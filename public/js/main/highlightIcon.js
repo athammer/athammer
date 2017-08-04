@@ -12,6 +12,8 @@ $( document ).ready(function() {
     $(".icon-group-contact").attr('class', 'icon-group-active');
   }else if (currentLocation == "/projects") {
     $(".icon-group-projects").attr('class', 'icon-group-active');
+  }else if (currentLocation == "/trading") {
+    $(".icon-group-trading").attr('class', 'icon-group-active');
   }
 
 });

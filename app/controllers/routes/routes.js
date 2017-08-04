@@ -20,6 +20,9 @@ module.exports = function(app){
     app.get('/projects', function(req, res) {
         res.render('./pages/projects.ejs');
     });
+    app.get('/trading', function(req, res) {
+        res.render('./pages/trading.ejs');
+    });
     app.get('/skills', function(req, res) {
         res.render('./pages/skills.ejs');
     });

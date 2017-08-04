@@ -4,6 +4,8 @@ var subdomain = require('express-subdomain');
 var router = express.Router();
 var favicon = require('serve-favicon');
 var helmet = require('helmet');
+var helmet = require('helmet');
+var SocketCluster = require('socketcluster').SocketCluster;
 
 
 
@@ -11,6 +13,20 @@ var middlewares = require("./app/middleware/middleware.js");
 
 //app.set('views', __dirname + '/views');
 app.set('view engine', 'ejs');
+
+// var socketCluster = new SocketCluster({
+//   workers: 3,
+//   brokers: 3,
+//   port: 8000,
+//   appName: 'tradeApp',
+//   workerController: 'worker.js',
+//   protocol: 'https',
+//   protocolOptions: {
+//     key: fs.readFileSync(process.env.KEY_COINIGY, 'utf8'),
+//     cert: fs.readFileSync(process.env.SECRET_COINIGY, 'utf8'),
+//     passphrase: process.env.SECRET_COINIGY
+//   }
+// });
 
 
 app.use(helmet());
