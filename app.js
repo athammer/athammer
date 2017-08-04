@@ -5,7 +5,7 @@ var router = express.Router();
 var favicon = require('serve-favicon');
 var helmet = require('helmet');
 var helmet = require('helmet');
-var SocketCluster = require('socketcluster').SocketCluster;
+var socketCluster = require('socketcluster');
 
 
 
@@ -14,19 +14,41 @@ var middlewares = require("./app/middleware/middleware.js");
 //app.set('views', __dirname + '/views');
 app.set('view engine', 'ejs');
 
-// var socketCluster = new SocketCluster({
-//   workers: 3,
-//   brokers: 3,
-//   port: 8000,
-//   appName: 'tradeApp',
-//   workerController: 'worker.js',
-//   protocol: 'https',
-//   protocolOptions: {
-//     key: fs.readFileSync(process.env.KEY_COINIGY, 'utf8'),
-//     cert: fs.readFileSync(process.env.SECRET_COINIGY, 'utf8'),
-//     passphrase: process.env.SECRET_COINIGY
-//   }
-// });
+
+var api_credentials =
+  "apiKey"    : process.env.KEY_COINIGY,
+  "apiSecret" : process.env.SECRET_COINIGY
+}
+
+var options = {
+  hostname  : "sc-02.coinigy.com",
+  port      : "443",
+  secure    : "true"
+};
+
+var SCsocket = socketCluster.connect(options);
+
+
+SCsocket.on('connect', function (status) {
+
+  console.log(status);
+
+  SCsocket.on('error', function (err) {
+        console.log(err);
+  });
+
+
+  SCsocket.emit("auth", api_credentials, function (err, token) {
+
+      if (!err && token) {
+
+
+      } else {
+          console.log(err)
+      }
+  });
+});
+
 
 
 app.use(helmet());
