@@ -1,3 +1,5 @@
+var middleware = require("./../../middleware/middleware.js");
+
 
 module.exports = function(app){
 
@@ -11,9 +13,6 @@ module.exports = function(app){
     app.get('/contact', function(req, res) {
         res.render('./pages/contact.ejs');
     });
-    // app.post('/contact', function(req, res) {
-    //     res.render('./pages/contact.ejs');
-    // });
     app.get('/hobbies', function(req, res) {
         res.render('./pages/hobbies.ejs');
     });
@@ -21,7 +20,7 @@ module.exports = function(app){
         res.render('./pages/projects.ejs');
     });
     app.get('/trading', function(req, res) {
-        res.render('./pages/trading.ejs');
+      middleware.tradingUpdate(req, res);
     });
     app.get('/skills', function(req, res) {
         res.render('./pages/skills.ejs');

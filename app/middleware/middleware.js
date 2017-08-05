@@ -1,3 +1,81 @@
+var request = require('request');
+var http = require('http');
+
+//        'X-API-KEY': 'process.env.KEY_COINIGY',
+//        'X-API-SECRET': 'process.env.SECRET_COINIGY'
+//
+
+
 module.exports = {
-    
+
+  tradingUpdate: function(req, res, possibleUser) {
+    var BTCPrice;
+    var totalBalance = 0;
+    var orderData = []
+    for (var i = 0; i < 5; i++) {
+         orderData[i] = [];
+    }
+
+
+    http.get({
+      host: 'api.coindesk.com',
+      path: '/v1/bpi/currentprice.json'
+    }, function(response) {
+      var body = '';
+      response.on('data', function(d) { body += d; });
+      response.on('end', function() {
+      var parsed = JSON.parse(body);
+          BTCPrice = parsed.bpi.USD.rate;
+          BTCPrice = BTCPrice.replace(/,/g, "");
+          BTCPrice = parseFloat(BTCPrice);
+      });
+      request({
+        method: 'POST',
+        url: 'https://api.coinigy.com/api/v1/balances',
+        headers: {
+          'Content-Type': 'application/json',
+          'X-API-KEY': process.env.KEY_COINIGY,
+          'X-API-SECRET': process.env.SECRET_COINIGY
+        }}, function (error, response, body) {
+          if(error){
+            return;
+          }
+          var obj = JSON.parse(body);
+          console.log(body)
+          for(var i = 0; i < obj.data.length; i++) {
+
+            totalBalance = (obj.data[i].btc_balance * parseInt(BTCPrice)) + totalBalance;
+          }
+          request({
+            method: 'POST',
+            url: 'https://api.coinigy.com/api/v1/orders',
+            headers: {
+              'Content-Type': 'application/json',
+              'X-API-KEY': process.env.KEY_COINIGY,
+              'X-API-SECRET': process.env.SECRET_COINIGY
+            }}, function (error, response, body) {
+              if(error){
+                return;
+              }
+              var obj = JSON.parse(body);
+              for(var i = 0; i < obj.data.order_history.length; i++) {
+                orderData[i][0] = obj.data.order_history[i].mkt_name;
+                orderData[i][1] = obj.data.order_history[i].order_type
+                orderData[i][2] = obj.data.order_history[i].order_price_type
+                orderData[i][3] = obj.data.order_history[i].quantity
+                orderData[i][4] = obj.data.order_history[i].order_time
+              }
+              totalBalance = parseInt(totalBalance);
+              res.render('./pages/trading.ejs', { totalBalanceEJS: totalBalance, orderDataEJS: orderData  });
+            });
+
+          });
+
+
+
+    }
+  )},
+
+
+
 }
