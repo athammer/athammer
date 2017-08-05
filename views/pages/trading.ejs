@@ -25,7 +25,19 @@
       <h3>
 
       <h1>Current Balance: $<%= totalBalanceEJS %></h1>
+      <h4> Crypto abbreviation | Amount owned | USD worth </h4>
+      <% for(var i = 0; i < cryptoDataEJS.length; i++) {%>
+        <br>
+        <% for(var j = 0; j < cryptoDataEJS[i].length; j++) {%>
+          <b style="font-size: 150%;"><%= cryptoDataEJS[i][j] %> |</b>
+        <% } %>
+      <% } %>
+
+      <br>
+      <br>
+      <br>
       <h1>Recent Trades</h1>
+      <h4> What was Traded | Buy or Sell | Type of Trade | Amount | Date </h4>
       <% for(var i = 0; i < orderDataEJS.length; i++) {%>
         <br>
         <% for(var j = 0; j < orderDataEJS[i].length; j++) {%>

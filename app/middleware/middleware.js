@@ -1,10 +1,9 @@
 var request = require('request');
 var http = require('http');
 
-//        'X-API-KEY': 'process.env.KEY_COINIGY',
-//        'X-API-SECRET': 'process.env.SECRET_COINIGY'
+      //  'X-API-KEY': process.env.KEY_COINIGY
+      //  'X-API-SECRET': process.env.SECRET_COINIGY
 //
-
 
 module.exports = {
 
@@ -14,6 +13,10 @@ module.exports = {
     var orderData = []
     for (var i = 0; i < 5; i++) {
          orderData[i] = [];
+    }
+    var cryptoData = []
+    for (var i = 0; i < 3; i++) {
+         cryptoData[i] = [];
     }
 
 
@@ -34,16 +37,19 @@ module.exports = {
         url: 'https://api.coinigy.com/api/v1/balances',
         headers: {
           'Content-Type': 'application/json',
-          'X-API-KEY': process.env.KEY_COINIGY,
+          'X-API-KEY': process.env.KEY_COINIGY
           'X-API-SECRET': process.env.SECRET_COINIGY
         }}, function (error, response, body) {
           if(error){
             return;
           }
           var obj = JSON.parse(body);
-          console.log(body)
-          for(var i = 0; i < obj.data.length; i++) {
+          console.log(obj.data)
 
+          for(var i = 0; i < obj.data.length; i++) {
+            cryptoData[i][0] = obj.data[i].balance_curr_code;
+            cryptoData[i][1] = obj.data[i].balance_amount_total;
+            cryptoData[i][2] = obj.data[i].btc_balance * parseInt(BTCPrice);
             totalBalance = (obj.data[i].btc_balance * parseInt(BTCPrice)) + totalBalance;
           }
           request({
@@ -51,7 +57,7 @@ module.exports = {
             url: 'https://api.coinigy.com/api/v1/orders',
             headers: {
               'Content-Type': 'application/json',
-              'X-API-KEY': process.env.KEY_COINIGY,
+              'X-API-KEY': process.env.KEY_COINIGY
               'X-API-SECRET': process.env.SECRET_COINIGY
             }}, function (error, response, body) {
               if(error){
@@ -66,7 +72,7 @@ module.exports = {
                 orderData[i][4] = obj.data.order_history[i].order_time
               }
               totalBalance = parseInt(totalBalance);
-              res.render('./pages/trading.ejs', { totalBalanceEJS: totalBalance, orderDataEJS: orderData  });
+              res.render('./pages/trading.ejs', { totalBalanceEJS: totalBalance, orderDataEJS: orderData, cryptoDataEJS: cryptoData  });
             });
 
           });
