@@ -37,7 +37,7 @@ module.exports = {
         url: 'https://api.coinigy.com/api/v1/balances',
         headers: {
           'Content-Type': 'application/json',
-          'X-API-KEY': process.env.KEY_COINIGY
+          'X-API-KEY': process.env.KEY_COINIGY,
           'X-API-SECRET': process.env.SECRET_COINIGY
         }}, function (error, response, body) {
           if(error){
@@ -57,7 +57,7 @@ module.exports = {
             url: 'https://api.coinigy.com/api/v1/orders',
             headers: {
               'Content-Type': 'application/json',
-              'X-API-KEY': process.env.KEY_COINIGY
+              'X-API-KEY': process.env.KEY_COINIGY,
               'X-API-SECRET': process.env.SECRET_COINIGY
             }}, function (error, response, body) {
               if(error){
