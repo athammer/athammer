@@ -92,6 +92,7 @@ module.exports = {
               var accountCashValue = 0;
               var accountSecuritiesValue = 0;
               var accountNumber = 0;
+              var stockHoldings = [];
 
               var oauth = new OAuth.OAuth(
                 'https://developers.tradeking.com/oauth/request_token',
@@ -137,78 +138,71 @@ module.exports = {
                   if(err){
                     throw err;
                   }
-
                   accountNumber = result.response.accountbalance[0].money
                   accountSecurities = result.response.accountbalance[0].securities
                 });
 
-              });
 
 
-              /*=====get specifics of holdings========*/
-              var stockSym = "memes"
-              var costBasis = 0.0 //per share
-              var qty = 0;
-              var marketvalue = 0;
-              var gainloss = .01 //1 PENNY GAINS KID
-              var marketvaluechange = .01 //1% GAINS KID; if "gainz" are neg must be calced another way, assuming ally's api can be trusted.
-              //instrument.sym, costbasis, qty, marketvalue, gainloss, marketvaluechange,
-              var stockHoldings = []
-              for (var i = 0; i < 6; i++) {
-                   stockHoldings[i] = [];
-              }
-              oauth.get(
-              'https://api.tradeking.com/v1/accounts/' + accountNumber + '/holdings.xml',
-              process.env.OAUTH_TOKEN, //test user token
-              process.env.OAUTH_SECRET_TOKEN, //test user secret
-              function (e, data, res){
-                if(e){
-                  throw e;
+                /*=====get specifics of holdings========*/
+                var stockSym = "memes"
+                var costBasis = 0.0 //per share
+                var qty = 0;
+                var marketvalue = 0;
+                var gainloss = .01 //1 PENNY GAINS KID
+                var marketvaluechange = .01 //1% GAINS KID; if "gainz" are neg must be calced another way (assuming ally's exampl,es were not whack)
+                //instrument.sym, costbasis, qty, marketvalue, gainloss, marketvaluechange,
+                var stockHoldings = []
+                for (var i = 0; i < 6; i++) {
+                     stockHoldings[i] = [];
                 }
-                parser.parseString(data, function (err, result) {
-                  if(err){
-                    throw err;
+                oauth.get(
+                'https://api.tradeking.com/v1/accounts/' + accountNumber + '/holdings.xml',
+                process.env.OAUTH_TOKEN, //test user token
+                process.env.OAUTH_SECRET_TOKEN, //test user secret
+                function (e, data, res){
+                  if(e){
+                    throw e;
                   }
-                  for(var xd = 0; xd < result.response.accountholdings.length; xd++) {
-                    stockSym = result.response.accountholdings[i].instrument.sym;
-                    costBasis = result.response.accountholdings[i].costbasis;
-                    qty = result.response.accountholdings[i].qty;
-                    marketvalue = result.response.accountholdings[i].marketvalue;
-                    gainloss = result.response.accountholdings[i].gainloss;
-                    marketvaluechange = result.response.accountholdings[i].marketvaluechange;
+                  parser.parseString(data, function (err, result) {
+                    if(err){
+                      throw err;
+                    }
+                    for(var xd = 0; xd < result.response.accountholdings.length; xd++) {
+                      stockSym = result.response.accountholdings[i].instrument.sym
+                      costBasis = result.response.accountholdings[i].costbasis
+                      qty = result.response.accountholdings[i].qty
+                      marketvalue = result.response.accountholdings[i].marketvalue
+                      gainloss = result.response.accountholdings[i].gainloss
+                      marketvaluechange = result.response.accountholdings[i].marketvaluechange
 
-                    stockHoldings[i][0] = stockSym;
-                    stockHoldings[i][1] = costBasis;
-                    stockHoldings[i][2] = qty;
-                    stockHoldings[i][3] = marketvalue;
-                    stockHoldings[i][4] = gainloss;
-                    stockHoldings[i][5] = marketvaluechange;
-                  }
+                      stockHoldings[i][0] = stockSym
+                      stockHoldings[i][1] = costBasis
+                      stockHoldings[i][2] = qty
+                      stockHoldings[i][3] = marketvalue
+                      stockHoldings[i][4] = gainloss
+                      stockHoldings[i][5] = marketvaluechange
+                    }
+                    accountCashValue = result.response.accountholdings[0].account
+                    accountSecuritiesValue = result.response.accountholdings[0].accountvalue
+
+
+
+
+                    res.render('./pages/trading.ejs', { totalBalanceEJS: totalBalance, orderDataEJS: orderData, cryptoDataEJS: cryptoData,
+                      accountTotalValueEJS: accountTotalValue, accountCashValueEJS: accountCashValue, accountSecuritiesValueEJS: accountSecuritiesValue,
+                      accountNumberEJS: accountNumber, stockHoldingsEJS: stockHoldings});
+
+                  });
+
                 });
 
               });
 
 
-              /*=====get stock holdings specifics========*/
-              oauth.get(
-              'https://api.tradeking.com/v1/accounts/balances.xml',
-              process.env.OAUTH_TOKEN, //test user token
-              process.env.OAUTH_SECRET_TOKEN, //test user secret
-              function (e, data, res){
-                if(e){
-                  throw e;
-                }
-                parser.parseString(data, function (err, result) {
-                  if(err){
-                    throw err;
-                  }
 
-                  accountNumber = result.response.accountbalance[0].account
-                  accountValue = result.response.accountbalance[0].accountvalue
-                });
 
-              });
-              res.render('./pages/trading.ejs', { totalBalanceEJS: totalBalance, orderDataEJS: orderData, cryptoDataEJS: cryptoData  });
+
 
 
 
@@ -221,13 +215,4 @@ module.exports = {
           });
     }
   )},
-
-
-
-
-
-
-
-
-
 }
