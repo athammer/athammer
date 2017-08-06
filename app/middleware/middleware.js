@@ -110,9 +110,9 @@ module.exports = {
                   if(err){
                     throw err;
                   }
-                  console.dir(result.response);
+                  console.dir("result:" + result.response);
                   console.log('space');
-                  console.dir(result.response[1]);
+                  console.dir("result acc:" + result.response.accounts);
                   console.log('Done');
                 });
 
