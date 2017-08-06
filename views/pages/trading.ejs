@@ -52,15 +52,17 @@
       <br />
       <br />
 
-        <h1>Current Securities/Cash Balance: $<%= accountTotalValue %></h1>
-        <h2>Current Securities Balance: $<%= accountSecuritiesValue %></h2>
-        <h2>Current Cash Balance: $<%= accountCashValue %></h2>
+
+
+        <h1>Current Securities/Cash Balance: $<%= accountTotalValueEJS %></h1>
+        <h2>Current Securities Balance: $<%= accountSecuritiesValueEJS %></h2>
+        <h2>Current Cash Balance: $<%= accountCashValueEJS %></h2>
         <h4> Crypto abbreviation | Amount owned | USD worth </h4>
-        <% for(var i = 0; i < stockHoldings.length; i++) {%>
+        <% for(var i = 0; i < stockHoldingsEJS.length; i++) {%>
           <br>
           <br>
-          <% for(var j = 0; j < stockHoldings[i].length; j++) {%>
-            <b style="font-size: 150%;"><%= stockHoldings[i][j] %> |</b>
+          <% for(var j = 0; j < stockHoldingsEJS[i].length; j++) {%>
+            <b style="font-size: 150%;"><%= stockHoldingsEJS[i][j] %> |</b>
           <% } %>
         <% } %>
 
