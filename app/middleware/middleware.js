@@ -222,12 +222,14 @@ module.exports = {
                               if(err){
                                 throw err;
                               }
+                              var length2 = result.response.transactions.length
+                              if(length2 == 0 || length2 == null) {
+                                length2 = 0;
+                                console.log("no recent trades")
+                              }
                               for(var xda = 0; xda < result.response.transactions.length; xda++) {
                                 //activity, date, desc, symbol, transaction[4] //price, transaction[5]
-                                if(result.response.transactions.length == 0) {
-                                  console.log('no recent trades')
-                                  break;
-                                }
+
                                 price = result.response.transactions[xda].transaction[4]
                                 quantity = result.response.transactions[xda].transaction[5]
                                 activity = result.response.transactions[xda].activity
