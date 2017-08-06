@@ -146,9 +146,15 @@ module.exports = {
 
 
               /*=====get specifics of holdings========*/
+              var stockSym = "memes"
+              var costBasis = 0.0 //per share
+              var qty = 0;
+              var marketvalue = 0;
+              var gainloss = .01 //1 PENNY GAINS KID
+              var marketvaluechange = .01 //1% GAINS KID; if "gainz" are neg must be calced another way, assuming ally's api can be trusted.
               //instrument.sym, costbasis, qty, marketvalue, gainloss, marketvaluechange,
               var stockHoldings = []
-              for (var i = 0; i < 5; i++) {
+              for (var i = 0; i < 6; i++) {
                    stockHoldings[i] = [];
               }
               oauth.get(
@@ -163,9 +169,21 @@ module.exports = {
                   if(err){
                     throw err;
                   }
+                  for(var xd = 0; xd < result.response.accountholdings.length; xd++) {
+                    stockSym = result.response.accountholdings[i].instrument.sym;
+                    costBasis = result.response.accountholdings[i].costbasis;
+                    qty = result.response.accountholdings[i].qty;
+                    marketvalue = result.response.accountholdings[i].marketvalue;
+                    gainloss = result.response.accountholdings[i].gainloss;
+                    marketvaluechange = result.response.accountholdings[i].marketvaluechange;
 
-                  accountCashValue = result.response.accountbalance[0].account
-                  accountSecuritiesValue = result.response.accountbalance[0].accountvalue
+                    stockHoldings[i][0] = stockSym;
+                    stockHoldings[i][1] = costBasis;
+                    stockHoldings[i][2] = qty;
+                    stockHoldings[i][3] = marketvalue;
+                    stockHoldings[i][4] = gainloss;
+                    stockHoldings[i][5] = marketvaluechange;
+                  }
                 });
 
               });
