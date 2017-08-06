@@ -122,6 +122,9 @@ module.exports = {
 
                   accountNumber = result.response.accountbalance[0].account
                   accountTotalValue = result.response.accountbalance[0].accountvalue
+                  if(null == accountTotalValue) {
+                    accountTotalValue = 0;
+                  }
 
                   /*=====get cash and secreuity value ========*/
                   oauth.get(
@@ -139,6 +142,12 @@ module.exports = {
                       }
                       accountCashValue = result.response.accountbalance[0].money.total
                       accountSecuritiesValue = result.response.accountbalance[0].securities.total
+                      if(null == accountCashValue) {
+                        accountCashValue = 0;
+                      }
+                      if(null == accountSecuritiesValue) {
+                        accountSecuritiesValue = 0;
+                      }
 
                       /*=====get specifics of holdings========*/
                       var stockSym = "memes"
