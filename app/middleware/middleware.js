@@ -11,27 +11,7 @@ module.exports = {
 
 
   stockUpdate: function(req, res, totalBalance, cryptoData, orderData) {
-    var oauth = new OAuth.OAuth(
-      'https://developers.tradeking.com/oauth/request_token',
-      'https://developers.tradeking.com/oauth/access_token',
-      process.env.CONSUMER_KEY,
-      process.env.CONSUMER_SECRET,
-      '1.0A',
-      null,
-      'HMAC-SHA1'
-    );
 
-    oauth.get(
-    'https://api.tradeking.com/v1/accounts.xml',
-    process.env.OAUTH_TOKEN, //test user token
-    process.env.OAUTH_SECRET_TOKEN, //test user secret
-    function (e, data, res){
-      if(e){
-        throw e;
-      }
-      console.log(data);
-    });
-    res.render('./pages/trading.ejs', { totalBalanceEJS: totalBalance, orderDataEJS: orderData, cryptoDataEJS: cryptoData  });
   },
 
 
@@ -102,7 +82,36 @@ module.exports = {
                 orderData[i][4] = obj.data.order_history[i].order_time
               }
               totalBalance = parseInt(totalBalance);
-              stockUpdate(req, res, totalBalance, cryptoData, orderData);
+              /*=============STOCK PART ================*/
+              var oauth = new OAuth.OAuth(
+                'https://developers.tradeking.com/oauth/request_token',
+                'https://developers.tradeking.com/oauth/access_token',
+                process.env.CONSUMER_KEY,
+                process.env.CONSUMER_SECRET,
+                '1.0A',
+                null,
+                'HMAC-SHA1'
+              );
+
+              oauth.get(
+              'https://api.tradeking.com/v1/accounts.xml',
+              process.env.OAUTH_TOKEN, //test user token
+              process.env.OAUTH_SECRET_TOKEN, //test user secret
+              function (e, data, res){
+                if(e){
+                  throw e;
+                }
+                console.log(data);
+              });
+              res.render('./pages/trading.ejs', { totalBalanceEJS: totalBalance, orderDataEJS: orderData, cryptoDataEJS: cryptoData  });
+
+
+
+
+
+
+
+
             });
           });
     }
