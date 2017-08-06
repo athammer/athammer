@@ -112,11 +112,11 @@ module.exports = {
               process.env.OAUTH_SECRET_TOKEN, //test user secret
               function (e, data, res){
                 if(e){
-                  throw e;
+                  console.log(e);
                 }
                 parser.parseString(data, function (err, result) {
                   if(err){
-                    throw err;
+                    console.log(e);
                   }
 
                   accountNumber = result.response.accountbalance[0].account
@@ -132,11 +132,11 @@ module.exports = {
               process.env.OAUTH_SECRET_TOKEN, //test user secret
               function (e, data, res){
                 if(e){
-                  throw e;
+                  console.log(e);
                 }
                 parser.parseString(data, function (err, result) {
                   if(err){
-                    throw err;
+                    console.log(e);
                   }
                   accountNumber = result.response.accountbalance[0].money
                   accountSecurities = result.response.accountbalance[0].securities
@@ -162,11 +162,11 @@ module.exports = {
                 process.env.OAUTH_SECRET_TOKEN, //test user secret
                 function (e, data, res){
                   if(e){
-                    throw e;
+                    console.log(e);
                   }
                   parser.parseString(data, function (err, result) {
                     if(err){
-                      throw err;
+                      console.log(e);
                     }
                     for(var xd = 0; xd < result.response.accountholdings.length; xd++) {
                       stockSym = result.response.accountholdings[i].instrument.sym
