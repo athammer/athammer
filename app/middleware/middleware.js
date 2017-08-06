@@ -157,7 +157,7 @@ module.exports = {
                     for (var i = 0; i < 6; i++) {
                          stockHoldings[i] = [];
                     }
-                    console.log('https://api.tradeking.com/v1/accounts/' + accountNumber + '/holdings.xml',)
+                    console.log('https://api.tradeking.com/v1/accounts/' + accountNumber + '/holdings.xml')
                     oauth.get(
                     'https://api.tradeking.com/v1/accounts/' + accountNumber + '/holdings.xml',
                     process.env.OAUTH_TOKEN, //test user token
