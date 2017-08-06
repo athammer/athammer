@@ -172,19 +172,20 @@ module.exports = {
                           throw err;
                         }
                         for(var xd = 0; xd < result.response.accountholdings.length; xd++) {
-                          stockSym = result.response.accountholdings[xd].instrument[4]
-                          costBasis = result.response.accountholdings[xd].costbasis
-                          qty = result.response.accountholdings[xd].qty
-                          marketvalue = result.response.accountholdings[xd].marketvalue
-                          gainloss = result.response.accountholdings[xd].gainloss
-                          marketvaluechange = result.response.accountholdings[xd].marketvaluechange
-
-                          stockHoldings[xd][0] = stockSym
-                          stockHoldings[xd][1] = costBasis
-                          stockHoldings[xd][2] = qty
-                          stockHoldings[xd][3] = marketvalue
-                          stockHoldings[xd][4] = gainloss
-                          stockHoldings[xd][5] = marketvaluechange
+                          console.log(result.response.accountholdings[xd]);
+                          // stockSym = result.response.accountholdings[xd].instrument[4]
+                          // costBasis = result.response.accountholdings[xd].costbasis
+                          // qty = result.response.accountholdings[xd].qty
+                          // marketvalue = result.response.accountholdings[xd].marketvalue
+                          // gainloss = result.response.accountholdings[xd].gainloss
+                          // marketvaluechange = result.response.accountholdings[xd].marketvaluechange
+                          //
+                          // stockHoldings[xd][0] = stockSym
+                          // stockHoldings[xd][1] = costBasis
+                          // stockHoldings[xd][2] = qty
+                          // stockHoldings[xd][3] = marketvalue
+                          // stockHoldings[xd][4] = gainloss
+                          // stockHoldings[xd][5] = marketvaluechange
                         }
 
 
