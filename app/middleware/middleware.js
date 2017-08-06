@@ -99,7 +99,7 @@ module.exports = {
               );
 
               oauth.get(
-              'https://api.tradeking.com/v1/accounts.xml',
+              'https://api.tradeking.com/v1/accounts/balances.xml',
               process.env.OAUTH_TOKEN, //test user token
               process.env.OAUTH_SECRET_TOKEN, //test user secret
               function (e, data, res){
@@ -111,17 +111,7 @@ module.exports = {
                     throw err;
                   }
                   console.log('space');
-                  console.log(result.response.accounts);
-                  console.log('Done');
-                  console.log(result.response.accounts[0].accountsummary[0]);
-                  console.log('Done');
-                  console.log(result.response.accounts[0].accountsummary.account[0]);
-                  console.log('Done');
-                  console.log(result.response.accounts[0].accountsummary.accountbalance[0]);
-                  console.log('Done');
-                  console.log(result.response.accounts[0].accountsummary.accountholdings[0]);
-                  console.log('Done');
-                  console.log();
+                  console.log(result.response)
                 });
 
               });
