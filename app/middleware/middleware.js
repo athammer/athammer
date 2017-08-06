@@ -121,97 +121,102 @@ module.exports = {
                   }
 
                   accountNumber = result.response.accountbalance[0].account
-                  console.log("Account number: " +  accountNumber);
                   accountTotalValue = result.response.accountbalance[0].accountvalue
-                });
 
-
-
-
-                /*=====get cash and secreuity value ========*/
-                oauth.get(
-                'https://api.tradeking.com/v1/accounts/' + accountNumber + '/balances.xml',
-                process.env.OAUTH_TOKEN, //test user token
-                process.env.OAUTH_SECRET_TOKEN, //test user secret
-                function (e, data, responce){
-                  if(e){
-                    console.log(e);
-                    throw e;
-                  }
-                  parser.parseString(data, function (err, result) {
-                    if(err){
-                      throw err;
+                  /*=====get cash and secreuity value ========*/
+                  oauth.get(
+                  'https://api.tradeking.com/v1/accounts/' + accountNumber + '/balances.xml',
+                  process.env.OAUTH_TOKEN, //test user token
+                  process.env.OAUTH_SECRET_TOKEN, //test user secret
+                  function (e, data, responce){
+                    if(e){
+                      console.log(e);
+                      throw e;
                     }
-                    accountCashValue = result.response.accountbalance[0].money.total
-                    accountSecuritiesValue = result.response.accountbalance[0].securities.total
-
-                    /*=====get specifics of holdings========*/
-                    var stockSym = "memes"
-                    var costBasis = 0.0 //per share
-                    var qty = 0;
-                    var marketvalue = 0;
-                    var gainloss = .01 //1 PENNY GAINS KID
-                    var marketvaluechange = .01 //1% GAINS KID; if "gainz" are neg must be calced another way (assuming ally's exampl,es were not whack)
-                    //instrument.sym, costbasis, qty, marketvalue, gainloss, marketvaluechange,
-                    var stockHoldings = []
-                    for (var i = 0; i < 6; i++) {
-                         stockHoldings[i] = [];
-                    }
-                    console.log('https://api.tradeking.com/v1/accounts/' + accountNumber + '/holdings.xml')
-                    oauth.get(
-                    'https://api.tradeking.com/v1/accounts/' + accountNumber + '/holdings.xml',
-                    process.env.OAUTH_TOKEN, //test user token
-                    process.env.OAUTH_SECRET_TOKEN, //test user secret
-                    function (e, data, responce){
-                      if(e){
-                        console.log(e);
-                        throw e;
+                    parser.parseString(data, function (err, result) {
+                      if(err){
+                        throw err;
                       }
-                      parser.parseString(data, function (err, result) {
-                        if(err){
-                          throw err;
+                      accountCashValue = result.response.accountbalance[0].money.total
+                      accountSecuritiesValue = result.response.accountbalance[0].securities.total
+
+                      /*=====get specifics of holdings========*/
+                      var stockSym = "memes"
+                      var costBasis = 0.0 //per share
+                      var qty = 0;
+                      var marketvalue = 0;
+                      var gainloss = .01 //1 PENNY GAINS KID
+                      var marketvaluechange = .01 //1% GAINS KID; if "gainz" are neg must be calced another way (assuming ally's exampl,es were not whack)
+                      //instrument.sym, costbasis, qty, marketvalue, gainloss, marketvaluechange,
+                      var stockHoldings = []
+                      for (var i = 0; i < 6; i++) {
+                           stockHoldings[i] = [];
+                      }
+                      oauth.get(
+                      'https://api.tradeking.com/v1/accounts/' + accountNumber + '/holdings.xml',
+                      process.env.OAUTH_TOKEN, //test user token
+                      process.env.OAUTH_SECRET_TOKEN, //test user secret
+                      function (e, data, responce){
+                        if(e){
+                          console.log(e);
+                          throw e;
                         }
-                        for(var xd = 0; xd < result.response.accountholdings.length; xd++) {
-                          console.log(result.response.accountholdings[xd]);
-                          // stockSym = result.response.accountholdings[xd].instrument[4]
-                          // costBasis = result.response.accountholdings[xd].costbasis
-                          // qty = result.response.accountholdings[xd].qty
-                          // marketvalue = result.response.accountholdings[xd].marketvalue
-                          // gainloss = result.response.accountholdings[xd].gainloss
-                          // marketvaluechange = result.response.accountholdings[xd].marketvaluechange
-                          //
-                          // stockHoldings[xd][0] = stockSym
-                          // stockHoldings[xd][1] = costBasis
-                          // stockHoldings[xd][2] = qty
-                          // stockHoldings[xd][3] = marketvalue
-                          // stockHoldings[xd][4] = gainloss
-                          // stockHoldings[xd][5] = marketvaluechange
-                        }
+                        parser.parseString(data, function (err, result) {
+                          if(err){
+                            throw err;
+                          }
+                          for(var xd = 0; xd < result.response.accountholdings.length; xd++) {
+                            console.log(result.response.accountholdings[xd]);
+                            if(result.response.accountholdings[xd].totalsecurities == '0') {
+                              console.log('no holdings')
+                              break;
+                            }
+                            stockSym = result.response.accountholdings[xd].instrument[4]
+                            costBasis = result.response.accountholdings[xd].costbasis
+                            qty = result.response.accountholdings[xd].qty
+                            marketvalue = result.response.accountholdings[xd].marketvalue
+                            gainloss = result.response.accountholdings[xd].gainloss
+                            marketvaluechange = result.response.accountholdings[xd].marketvaluechange
+
+                            stockHoldings[xd][0] = stockSym
+                            stockHoldings[xd][1] = costBasis
+                            stockHoldings[xd][2] = qty
+                            stockHoldings[xd][3] = marketvalue
+                            stockHoldings[xd][4] = gainloss
+                            stockHoldings[xd][5] = marketvaluechange
+                          }
 
 
 
 
-                        res.render('./pages/trading.ejs', { totalBalanceEJS: totalBalance, orderDataEJS: orderData, cryptoDataEJS: cryptoData,
-                          accountTotalValueEJS: accountTotalValue, accountCashValueEJS: accountCashValue, accountSecuritiesValueEJS: accountSecuritiesValue,
-                          accountNumberEJS: accountNumber, stockHoldingsEJS: stockHoldings});
+                          res.render('./pages/trading.ejs', { totalBalanceEJS: totalBalance, orderDataEJS: orderData, cryptoDataEJS: cryptoData,
+                            accountTotalValueEJS: accountTotalValue, accountCashValueEJS: accountCashValue, accountSecuritiesValueEJS: accountSecuritiesValue,
+                            accountNumberEJS: accountNumber, stockHoldingsEJS: stockHoldings});
+
+                        });
 
                       });
+
+
+
+
+
+
+
 
                     });
 
 
 
 
-
-
-
-
                   });
 
-
-
-
                 });
+
+
+
+
+
 
               });
 
