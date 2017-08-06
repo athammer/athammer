@@ -129,7 +129,6 @@ module.exports = {
               /*=====get cash and secreuity value ========*/
               oauth.get(
               'https://api.tradeking.com/v1/accounts/' + accountNumber + '/balances.xml',
-              https://api.tradeking.com/v1/accounts/12345678/balances.xml
               process.env.OAUTH_TOKEN, //test user token
               process.env.OAUTH_SECRET_TOKEN, //test user secret
               function (e, data, res){
