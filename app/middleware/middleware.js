@@ -111,7 +111,7 @@ module.exports = {
                     throw err;
                   }
                   console.log('space');
-                  console.log(result.response)
+                  console.log(result.response.accountbalance[0].accountvalue)
                 });
 
               });
