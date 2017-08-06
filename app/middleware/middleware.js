@@ -223,11 +223,11 @@ module.exports = {
                                 throw err;
                               }
                               console.log("transactions: " + result.response.transactions)
-                              if(result.response.transactions.length == null) {
+                              if(result.response.transactions == null) {
                                 length2 = 0;
                                 console.log("no recent trades")
                               }
-                              for(var xda = 0; xda < result.response.transactions.length; xda++) {
+                              for(var xda = 0; xda < length2; xda++) {
                                 //activity, date, desc, symbol, transaction[4] //price, transaction[5]
 
                                 price = result.response.transactions[xda].transaction[4]
