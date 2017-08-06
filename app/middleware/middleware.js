@@ -110,10 +110,14 @@ module.exports = {
                   if(err){
                     throw err;
                   }
-                  console.log(result);
                   console.log('space');
-                  console.log(result.response.accounts[0]);
+                  console.log(result.response.accounts);
                   console.log('Done');
+                  console.log(result.response.accounts.account);
+                  console.log('Done');
+                  console.log(result.response.accounts.accountholdings);
+                  console.log('Done');
+                  console.log(result.response.accounts.accountbalance);
                 });
 
               });
