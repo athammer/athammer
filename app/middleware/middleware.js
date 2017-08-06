@@ -88,8 +88,10 @@ module.exports = {
 
 
               /*=============STOCK PART ================*/
-              var accountValue = 0;
-
+              var accountTotalValue = 0;
+              var accountCashValue = 0;
+              var accountSecuritiesValue = 0;
+              var accountNumber = 0;
 
               var oauth = new OAuth.OAuth(
                 'https://developers.tradeking.com/oauth/request_token',
@@ -101,6 +103,8 @@ module.exports = {
                 'HMAC-SHA1'
               );
 
+
+              /*=====get basic account info========*/
               oauth.get(
               'https://api.tradeking.com/v1/accounts/balances.xml',
               process.env.OAUTH_TOKEN, //test user token
@@ -113,7 +117,75 @@ module.exports = {
                   if(err){
                     throw err;
                   }
-                  console.log(result.response.accountbalance[0].account)
+
+                  accountNumber = result.response.accountbalance[0].account
+                  accountTotalValue = result.response.accountbalance[0].accountvalue
+                });
+
+              });
+
+              /*=====get cash and secreuity value ========*/
+              oauth.get(
+              'https://api.tradeking.com/v1/accounts/' + accountNumber + '/balances.xml',
+              process.env.OAUTH_TOKEN, //test user token
+              process.env.OAUTH_SECRET_TOKEN, //test user secret
+              function (e, data, res){
+                if(e){
+                  throw e;
+                }
+                parser.parseString(data, function (err, result) {
+                  if(err){
+                    throw err;
+                  }
+
+                  accountNumber = result.response.accountbalance[0].money
+                  accountSecurities = result.response.accountbalance[0].securities
+                });
+
+              });
+
+
+              /*=====get specifics of holdings========*/
+              //instrument.sym, costbasis, qty, marketvalue, gainloss, marketvaluechange,
+              var stockHoldings = []
+              for (var i = 0; i < 5; i++) {
+                   stockHoldings[i] = [];
+              }
+              oauth.get(
+              'https://api.tradeking.com/v1/accounts/' + accountNumber + '/holdings.xml',
+              process.env.OAUTH_TOKEN, //test user token
+              process.env.OAUTH_SECRET_TOKEN, //test user secret
+              function (e, data, res){
+                if(e){
+                  throw e;
+                }
+                parser.parseString(data, function (err, result) {
+                  if(err){
+                    throw err;
+                  }
+
+                  accountCashValue = result.response.accountbalance[0].account
+                  accountSecuritiesValue = result.response.accountbalance[0].accountvalue
+                });
+
+              });
+
+
+              /*=====get stock holdings specifics========*/
+              oauth.get(
+              'https://api.tradeking.com/v1/accounts/balances.xml',
+              process.env.OAUTH_TOKEN, //test user token
+              process.env.OAUTH_SECRET_TOKEN, //test user secret
+              function (e, data, res){
+                if(e){
+                  throw e;
+                }
+                parser.parseString(data, function (err, result) {
+                  if(err){
+                    throw err;
+                  }
+
+                  accountNumber = result.response.accountbalance[0].account
                   accountValue = result.response.accountbalance[0].accountvalue
                 });
 
