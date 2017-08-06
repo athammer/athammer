@@ -1,6 +1,8 @@
 var request = require('request');
 var http = require('http');
 var OAuth = require('oauth');
+var xml2js = require('xml2js');
+var parser = new xml2js.Parser();
 
       //  'X-API-KEY': process.env.KEY_COINIGY
       //  'X-API-SECRET': process.env.SECRET_COINIGY
@@ -104,7 +106,14 @@ module.exports = {
                 if(e){
                   throw e;
                 }
-                console.log(data);
+                parser.parseString(data, function (err, result) {
+                  if(err){
+                    throw err;
+                  }
+                  console.dir(result);
+                  console.log('Done');
+                });
+
               });
               res.render('./pages/trading.ejs', { totalBalanceEJS: totalBalance, orderDataEJS: orderData, cryptoDataEJS: cryptoData  });
 
