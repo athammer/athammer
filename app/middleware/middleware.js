@@ -88,6 +88,9 @@ module.exports = {
 
 
               /*=============STOCK PART ================*/
+              var accountValue = 0;
+
+
               var oauth = new OAuth.OAuth(
                 'https://developers.tradeking.com/oauth/request_token',
                 'https://developers.tradeking.com/oauth/access_token',
@@ -110,8 +113,8 @@ module.exports = {
                   if(err){
                     throw err;
                   }
-                  console.log('space');
-                  console.log(result.response.accountbalance[0].accountvalue)
+                  console.log(result.response.accountbalance[0].account)
+                  accountValue = result.response.accountbalance[0].accountvalue
                 });
 
               });
