@@ -110,7 +110,8 @@ module.exports = {
                   if(err){
                     throw err;
                   }
-                  console.dir(result.accounts);
+                  console.dir(result);
+                  console.dir(result[1]);
                   console.log('Done');
                 });
 
