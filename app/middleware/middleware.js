@@ -116,7 +116,7 @@ module.exports = {
                 }
                 parser.parseString(data, function (err, result) {
                   if(err){
-                    console.log(e);
+                    console.log(err);
                   }
 
                   accountNumber = result.response.accountbalance[0].account
@@ -136,7 +136,7 @@ module.exports = {
                 }
                 parser.parseString(data, function (err, result) {
                   if(err){
-                    console.log(e);
+                    console.log(err);
                   }
                   accountNumber = result.response.accountbalance[0].money
                   accountSecurities = result.response.accountbalance[0].securities
@@ -166,7 +166,7 @@ module.exports = {
                   }
                   parser.parseString(data, function (err, result) {
                     if(err){
-                      console.log(e);
+                      console.log(err);
                     }
                     for(var xd = 0; xd < result.response.accountholdings.length; xd++) {
                       stockSym = result.response.accountholdings[i].instrument.sym
