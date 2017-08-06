@@ -110,7 +110,7 @@ module.exports = {
               'https://api.tradeking.com/v1/accounts/balances.xml',
               process.env.OAUTH_TOKEN, //test user token
               process.env.OAUTH_SECRET_TOKEN, //test user secret
-              function (e, data, res){
+              function (e, data, responce){
                 if(e){
                   console.log(e);
                   throw e;
@@ -133,7 +133,7 @@ module.exports = {
                 'https://api.tradeking.com/v1/accounts/' + accountNumber + '/balances.xml',
                 process.env.OAUTH_TOKEN, //test user token
                 process.env.OAUTH_SECRET_TOKEN, //test user secret
-                function (e, data, res){
+                function (e, data, responce){
                   if(e){
                     console.log(e);
                     throw e;
@@ -162,7 +162,7 @@ module.exports = {
                     'https://api.tradeking.com/v1/accounts/' + accountNumber + '/holdings.xml',
                     process.env.OAUTH_TOKEN, //test user token
                     process.env.OAUTH_SECRET_TOKEN, //test user secret
-                    function (e, data, res){
+                    function (e, data, responce){
                       if(e){
                         console.log(e);
                         throw e;
