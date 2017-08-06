@@ -172,19 +172,19 @@ module.exports = {
                           throw err;
                         }
                         for(var xd = 0; xd < result.response.accountholdings.length; xd++) {
-                          stockSym = result.response.accountholdings[i].instrument.sym
-                          costBasis = result.response.accountholdings[i].costbasis
-                          qty = result.response.accountholdings[i].qty
-                          marketvalue = result.response.accountholdings[i].marketvalue
-                          gainloss = result.response.accountholdings[i].gainloss
-                          marketvaluechange = result.response.accountholdings[i].marketvaluechange
+                          stockSym = result.response.accountholdings[xd].instrument.sym
+                          costBasis = result.response.accountholdings[xd].costbasis
+                          qty = result.response.accountholdings[xd].qty
+                          marketvalue = result.response.accountholdings[xd].marketvalue
+                          gainloss = result.response.accountholdings[xd].gainloss
+                          marketvaluechange = result.response.accountholdings[xd].marketvaluechange
 
-                          stockHoldings[i][0] = stockSym
-                          stockHoldings[i][1] = costBasis
-                          stockHoldings[i][2] = qty
-                          stockHoldings[i][3] = marketvalue
-                          stockHoldings[i][4] = gainloss
-                          stockHoldings[i][5] = marketvaluechange
+                          stockHoldings[xd][0] = stockSym
+                          stockHoldings[xd][1] = costBasis
+                          stockHoldings[xd][2] = qty
+                          stockHoldings[xd][3] = marketvalue
+                          stockHoldings[xd][4] = gainloss
+                          stockHoldings[xd][5] = marketvaluechange
                         }
 
 
