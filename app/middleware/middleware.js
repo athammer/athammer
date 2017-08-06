@@ -82,6 +82,9 @@ module.exports = {
                 orderData[i][4] = obj.data.order_history[i].order_time
               }
               totalBalance = parseInt(totalBalance);
+
+
+
               /*=============STOCK PART ================*/
               var oauth = new OAuth.OAuth(
                 'https://developers.tradeking.com/oauth/request_token',
