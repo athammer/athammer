@@ -112,14 +112,15 @@ module.exports = {
               process.env.OAUTH_SECRET_TOKEN, //test user secret
               function (e, data, res){
                 if(e){
-                  console.log(e);
+                  throw e;
                 }
                 parser.parseString(data, function (err, result) {
                   if(err){
-                    console.log(err);
+                    throw err;
                   }
 
                   accountNumber = result.response.accountbalance[0].account
+                  console.log("Account number: " +  accountNumber);
                   accountTotalValue = result.response.accountbalance[0].accountvalue
                 });
 
@@ -128,15 +129,16 @@ module.exports = {
               /*=====get cash and secreuity value ========*/
               oauth.get(
               'https://api.tradeking.com/v1/accounts/' + accountNumber + '/balances.xml',
+              https://api.tradeking.com/v1/accounts/12345678/balances.xml
               process.env.OAUTH_TOKEN, //test user token
               process.env.OAUTH_SECRET_TOKEN, //test user secret
               function (e, data, res){
                 if(e){
-                  console.log(e);
+                  throw e;
                 }
                 parser.parseString(data, function (err, result) {
                   if(err){
-                    console.log(err);
+                    throw err;
                   }
                   accountNumber = result.response.accountbalance[0].money
                   accountSecurities = result.response.accountbalance[0].securities
@@ -162,11 +164,11 @@ module.exports = {
                 process.env.OAUTH_SECRET_TOKEN, //test user secret
                 function (e, data, res){
                   if(e){
-                    console.log(e);
+                    throw e;
                   }
                   parser.parseString(data, function (err, result) {
                     if(err){
-                      console.log(err);
+                      throw err;
                     }
                     for(var xd = 0; xd < result.response.accountholdings.length; xd++) {
                       stockSym = result.response.accountholdings[i].instrument.sym
