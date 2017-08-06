@@ -57,7 +57,19 @@
         <h1>Current Securities/Cash Balance: $<%= accountTotalValueEJS %></h1>
         <h2>Current Securities Balance: $<%= accountSecuritiesValueEJS %></h2>
         <h2>Current Cash Balance: $<%= accountCashValueEJS %></h2>
-        <h4> Crypto abbreviation | Amount owned | USD worth </h4>
+        <h2>Recent Trades</h2>
+        <h4> </h4>
+        <% for(var i = 0; i < recentTradesEJS.length; i++) {%>
+          <br>
+          <br>
+          <% for(var j = 0; j < recentTradesEJS[i].length; j++) {%>
+            <b style="font-size: 150%;"><%= recentTradesEJS[i][j] %> |</b>
+          <% } %>
+        <% } %>
+
+
+        <h2>Stock Holdings</h2>
+        <h4> </h4>
         <% for(var i = 0; i < stockHoldingsEJS.length; i++) {%>
           <br>
           <br>
@@ -66,7 +78,20 @@
           <% } %>
         <% } %>
 
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <h1>Total $<%= accountTotalValueEJS + totalBalanceEJS%></h1>
 
+          <br />
+          <br />
+          <br />
+          <br />
+          <br />
+          <br />
 
 
     </div>

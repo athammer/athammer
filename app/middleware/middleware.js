@@ -93,6 +93,7 @@ module.exports = {
               var accountSecuritiesValue = 0;
               var accountNumber = 0;
               var stockHoldings = [];
+              var recentTrades = [];
 
               var oauth = new OAuth.OAuth(
                 'https://developers.tradeking.com/oauth/request_token',
@@ -157,7 +158,6 @@ module.exports = {
                       var gainloss = .01 //1 PENNY GAINS KID
                       var marketvaluechange = .01 //1% GAINS KID; if "gainz" are neg must be calced another way (assuming ally's exampl,es were not whack)
                       //instrument.sym, costbasis, qty, marketvalue, gainloss, marketvaluechange,
-                      var stockHoldings = []
                       for (var i = 0; i < 6; i++) {
                            stockHoldings[i] = [];
                       }
@@ -198,9 +198,62 @@ module.exports = {
 
 
 
-                          res.render('./pages/trading.ejs', { totalBalanceEJS: totalBalance, orderDataEJS: orderData, cryptoDataEJS: cryptoData,
-                            accountTotalValueEJS: accountTotalValue, accountCashValueEJS: accountCashValue, accountSecuritiesValueEJS: accountSecuritiesValue,
-                            accountNumberEJS: accountNumber, stockHoldingsEJS: stockHoldings});
+                          /*=====get recent trades========*/
+                          var tradeActivity = "";
+                          var amount = 0;
+                          var date = "";
+                          var desc = "";
+                          var symbol = "";
+                          var price = 0;
+                          var quantity = 0;
+                          for (var i = 0; i < 6; i++) {
+                               recentTrades[i] = [];
+                          }
+                          oauth.get(
+                          'https://api.tradeking.com/v1/accounts/' + accountNumber + '/holdings.xml',
+                          process.env.OAUTH_TOKEN, //test user token
+                          process.env.OAUTH_SECRET_TOKEN, //test user secret
+                          function (e, data, responce){
+                            if(e){
+                              console.log(e);
+                              throw e;
+                            }
+                            parser.parseString(data, function (err, result) {
+                              if(err){
+                                throw err;
+                              }
+                              for(var xda = 0; xda < result.response.transactions.length; xda++) {
+                                //activity, date, desc, symbol, transaction[4] //price, transaction[5]
+                                if(result.response.transactions.length == 0) {
+                                  console.log('no recent trades')
+                                  break;
+                                }
+                                price = result.response.transactions[xda].transaction[4]
+                                quantity = result.response.transactions[xda].transaction[5]
+                                activity = result.response.transactions[xda].activity
+                                date = result.response.transactions[xda].date
+                                desc = result.response.transactions[xda].desc
+                                symbol = result.response.transactions[xda].symbol
+
+                                recentTrades[xda][0] = price
+                                recentTrades[xda][1] = quantity
+                                recentTrades[xda][2] = activity
+                                recentTrades[xda][3] = date
+                                recentTrades[xda][4] = desc
+                                recentTrades[xda][5] = symbol
+                              }
+
+
+
+
+                              res.render('./pages/trading.ejs', { totalBalanceEJS: totalBalance, orderDataEJS: orderData, cryptoDataEJS: cryptoData,
+                                accountTotalValueEJS: accountTotalValue, accountCashValueEJS: accountCashValue, accountSecuritiesValueEJS: accountSecuritiesValue,
+                                accountNumberEJS: accountNumber, stockHoldingsEJS: stockHoldings, recentTradesEJS: recentTrades});
+
+                            });
+
+                          });
+
 
                         });
 
