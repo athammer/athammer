@@ -115,13 +115,13 @@ module.exports = {
                   console.log('Done');
                   console.log(result.response.accounts[0]);
                   console.log('Done');
-                  console.log(result.response.accounts.accountsummary);
+                  console.log(result.response.accounts[0].account);
                   console.log('Done');
-                  console.log(result.response.accounts.account);
+                  console.log(result.response.accounts[0].accountbalance);
                   console.log('Done');
-                  console.log(result.response.accounts.accountholdings);
+                  console.log(result.response.accounts[0].accountholdings);
                   console.log('Done');
-                  console.log(result.response.accounts.accountbalance);
+                  console.log();
                 });
 
               });
