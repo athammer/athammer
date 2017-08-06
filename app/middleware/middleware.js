@@ -210,7 +210,7 @@ module.exports = {
                                recentTrades[i] = [];
                           }
                           oauth.get(
-                          'https://api.tradeking.com/v1/accounts/' + accountNumber + '/holdings.xml',
+                          'https://api.tradeking.com/v1/accounts/' + accountNumber + '/holdings.xml?range=all&transactions=all',
                           process.env.OAUTH_TOKEN, //test user token
                           process.env.OAUTH_SECRET_TOKEN, //test user secret
                           function (e, data, responce){
