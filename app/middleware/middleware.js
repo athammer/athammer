@@ -142,8 +142,8 @@ module.exports = {
                     if(err){
                       throw err;
                     }
-                    accountNumber = result.response.accountbalance[0].money
-                    accountSecurities = result.response.accountbalance[0].securities
+                    accountCashValue = result.response.accountbalance[0].money.total
+                    accountSecuritiesValue = result.response.accountbalance[0].securities.total
 
                     /*=====get specifics of holdings========*/
                     var stockSym = "memes"
@@ -186,8 +186,6 @@ module.exports = {
                           stockHoldings[i][4] = gainloss
                           stockHoldings[i][5] = marketvaluechange
                         }
-                        accountCashValue = result.response.accountholdings[0].account
-                        accountSecuritiesValue = result.response.accountholdings[0].accountvalue
 
 
 
