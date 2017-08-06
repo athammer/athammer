@@ -113,6 +113,10 @@ module.exports = {
                   console.log('space');
                   console.log(result.response.accounts);
                   console.log('Done');
+                  console.log(result.response.accounts[0]);
+                  console.log('Done');
+                  console.log(result.response.accounts.accountsummary);
+                  console.log('Done');
                   console.log(result.response.accounts.account);
                   console.log('Done');
                   console.log(result.response.accounts.accountholdings);
