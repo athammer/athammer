@@ -112,6 +112,7 @@ module.exports = {
               process.env.OAUTH_SECRET_TOKEN, //test user secret
               function (e, data, res){
                 if(e){
+                  console.log(e);
                   throw e;
                 }
                 parser.parseString(data, function (err, result) {
@@ -134,6 +135,7 @@ module.exports = {
                 process.env.OAUTH_SECRET_TOKEN, //test user secret
                 function (e, data, res){
                   if(e){
+                    console.log(e);
                     throw e;
                   }
                   parser.parseString(data, function (err, result) {
@@ -164,6 +166,7 @@ module.exports = {
                   process.env.OAUTH_SECRET_TOKEN, //test user secret
                   function (e, data, res){
                     if(e){
+                      console.log(e);
                       throw e;
                     }
                     parser.parseString(data, function (err, result) {
