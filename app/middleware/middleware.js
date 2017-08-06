@@ -172,7 +172,7 @@ module.exports = {
                           throw err;
                         }
                         for(var xd = 0; xd < result.response.accountholdings.length; xd++) {
-                          stockSym = result.response.accountholdings[xd].instrument.sym
+                          stockSym = result.response.accountholdings[xd].instrument[4]
                           costBasis = result.response.accountholdings[xd].costbasis
                           qty = result.response.accountholdings[xd].qty
                           marketvalue = result.response.accountholdings[xd].marketvalue
