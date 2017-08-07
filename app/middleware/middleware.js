@@ -249,9 +249,9 @@ module.exports = {
 
 
                               totalBalance = parseFloat(totalBalance);
-                              accountTotalValue = parseFloat(accountTotalValue.replace(/,/g, ''));
-                              accountCashValue = parseFloat(accountCashValue.replace(/,/g, ''));
-                              accountSecuritiesValue = parseFloat(accountSecuritiesValue.replace(/,/g, ''));
+                              accountTotalValue = parseFloat(accountTotalValue);
+                              accountCashValue = parseFloat(accountCashValue);
+                              accountSecuritiesValue = parseFloat(accountSecuritiesValue);
                               res.render('./pages/trading.ejs', { totalBalanceEJS: totalBalance, orderDataEJS: orderData, cryptoDataEJS: cryptoData,
                                 accountTotalValueEJS: accountTotalValue, accountCashValueEJS: accountCashValue, accountSecuritiesValueEJS: accountSecuritiesValue,
                                 accountNumberEJS: accountNumber, stockHoldingsEJS: stockHoldings, recentTradesEJS: recentTrades});
