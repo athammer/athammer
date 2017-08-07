@@ -18,6 +18,7 @@ $( document ).ready(function() {
     if(toggled) {
       toggled=false;
       running=true;
+      $( ".side-bar-text" ).remove();
       $(".icon-container").hide();
       $("#toggle").attr('class', 'fa fa-toggle-off');
       $(".left").animate({width: "5px"}, "fast");
