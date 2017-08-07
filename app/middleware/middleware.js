@@ -144,7 +144,7 @@ module.exports = {
                       console.log("1");
                       console.log(result.response.accountbalance[0]);
                       console.log("2");
-                      console.log(result.response.accountbalance[0].money[5]);
+                      console.log(result.response.accountbalance[0].money);
                       accountCashValue = result.response.accountbalance[0].money.total
                       accountSecuritiesValue = result.response.accountbalance[0].securities.total
                       if(null == accountCashValue) {
