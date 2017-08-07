@@ -144,9 +144,7 @@ module.exports = {
                       console.log("1");
                       console.log(result.response.accountbalance[0]);
                       console.log("2");
-                      console.log(result.response.accountbalance[0].money.total);
-                      console.log("3");
-                      console.log(result.response.accountbalance[0].money[5].total);
+                      console.log(result.response.accountbalance[0].money[5]);
                       accountCashValue = result.response.accountbalance[0].money.total
                       accountSecuritiesValue = result.response.accountbalance[0].securities.total
                       if(null == accountCashValue) {
@@ -181,7 +179,7 @@ module.exports = {
                             throw err;
                           }
                           for(var xd = 0; xd < result.response.accountholdings.length; xd++) {
-                            console.log(result.response.accountholdings[xd]);
+                            //console.log(result.response.accountholdings[xd]);
                             if(result.response.accountholdings[xd].totalsecurities == '0') {
                               console.log('no holdings')
                               break;
@@ -228,7 +226,7 @@ module.exports = {
                               if(err){
                                 throw err;
                               }
-                              console.log("transactions: " + result.response)
+                              //console.log("transactions: " + result.response)
                               if(result.response.transactions == null) {
                                 length2 = 0;
                                 console.log("no recent trades")
