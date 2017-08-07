@@ -141,12 +141,9 @@ module.exports = {
                       if(err){
                         throw err;
                       }
-                      console.log("1");
-                      console.log(result.response.accountbalance[0]);
-                      console.log("2");
-                      console.log(result.response.accountbalance[0].money[0].total);
-                      accountCashValue = result.response.accountbalance[0].money.total
-                      accountSecuritiesValue = result.response.accountbalance[0].securities.total
+
+                      accountCashValue = result.response.accountbalance[0].money[0].total
+                      accountSecuritiesValue = result.response.accountbalance[0].securities[0].total
                       if(null == accountCashValue) {
                         accountCashValue = 0;
                       }
@@ -251,7 +248,10 @@ module.exports = {
 
 
 
-
+                              totalBalance = parseFloat(totalBalance.replace(/,/g, ''));
+                              accountTotalValue = parseFloat(accountTotalValue.replace(/,/g, ''));
+                              accountCashValue = parseFloat(accountCashValue.replace(/,/g, ''));
+                              accountSecuritiesValue = parseFloat(accountSecuritiesValue.replace(/,/g, ''));
                               res.render('./pages/trading.ejs', { totalBalanceEJS: totalBalance, orderDataEJS: orderData, cryptoDataEJS: cryptoData,
                                 accountTotalValueEJS: accountTotalValue, accountCashValueEJS: accountCashValue, accountSecuritiesValueEJS: accountSecuritiesValue,
                                 accountNumberEJS: accountNumber, stockHoldingsEJS: stockHoldings, recentTradesEJS: recentTrades});
