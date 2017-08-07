@@ -248,7 +248,7 @@ module.exports = {
 
 
 
-                              totalBalance = parseFloat(totalBalance.replace(/,/g, ''));
+                              totalBalance = parseFloat(totalBalance);
                               accountTotalValue = parseFloat(accountTotalValue.replace(/,/g, ''));
                               accountCashValue = parseFloat(accountCashValue.replace(/,/g, ''));
                               accountSecuritiesValue = parseFloat(accountSecuritiesValue.replace(/,/g, ''));
