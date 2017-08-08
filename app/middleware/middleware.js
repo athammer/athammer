@@ -224,19 +224,19 @@ module.exports = {
                                 throw err;
                               }
                               //console.log("transactions: " + result.response)
-                              if(result.response.transactions == null) {
+                              if(result.response.transactions.transaction.length == null) {
                                 length2 = 0;
                                 console.log("no recent trades")
                               }
                               for(var xda = 0; xda < length2; xda++) {
                                 //activity, date, desc, symbol, transaction[4] //price, transaction[5]
 
-                                price = result.response.transactions[xda].transaction[4]
-                                quantity = result.response.transactions[xda].transaction[5]
-                                activity = result.response.transactions[xda].activity
-                                date = result.response.transactions[xda].date
-                                desc = result.response.transactions[xda].desc
-                                symbol = result.response.transactions[xda].symbol
+                                price = result.response.transactions[0].transaction[xda].transaction[4]
+                                quantity = result.response.transactions[0].transaction[xda].transaction[5]
+                                activity = result.response.transactions[0].transaction[xda].activity
+                                date = result.response.transactions[0].transaction[xda].date
+                                desc = result.response.transactions[0].transaction[xda].desc
+                                symbol = result.response.transactions[0].transaction[xda].symbol
 
                                 recentTrades[xda][0] = price
                                 recentTrades[xda][1] = quantity
