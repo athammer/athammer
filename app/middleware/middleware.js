@@ -223,8 +223,7 @@ module.exports = {
                               if(err){
                                 throw err;
                               }
-                              console.log(result.response)
-                              console.log(result.response.transactions)
+                              var length2 = result.response.transactions[0].transaction.length;
                               if(result.response.transactions[0].transaction.length == null) {
                                 length2 = 0;
                                 console.log("no recent trades")
