@@ -213,7 +213,7 @@ module.exports = {
                           var quantity = 0;
 
                           oauth.get(
-                          'https://api.tradeking.com/v1/accounts/' + accountNumber + '/history.xml?range=all&transactions=all',
+                          'https://api.tradeking.com/v1/accounts/' + accountNumber + '/history.xml?range=all&transactions=trade',
                           process.env.OAUTH_TOKEN, //test user token
                           process.env.OAUTH_SECRET_TOKEN, //test user secret
                           function (e, data, responce){
@@ -234,8 +234,8 @@ module.exports = {
                               for(var xda = 0; xda < length2; xda++) {
                                 //activity, date, desc, symbol, transaction[4] //price, transaction[5]
 
-                                price = result.response.transactions[0].transaction[xda].transaction[4]
-                                quantity = result.response.transactions[0].transaction[xda].transaction[5]
+                                price = result.response.transactions[0].transaction[xda].transaction[0].price
+                                quantity = result.response.transactions[0].transaction[xda].transaction[0].quantity
                                 activity = result.response.transactions[0].transaction[xda].activity
                                 date = result.response.transactions[0].transaction[xda].date
                                 desc = result.response.transactions[0].transaction[xda].desc
