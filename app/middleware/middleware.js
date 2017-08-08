@@ -94,6 +94,12 @@ module.exports = {
               var accountNumber = 0;
               var stockHoldings = [];
               var recentTrades = [];
+              for (var i = 0; i < 6; i++) {
+                   stockHoldings[i] = [];
+              }
+              for (var asdf = 0; asdf < 6; asdf++) {
+                   recentTrades[asdf] = [];
+              }
 
               var oauth = new OAuth.OAuth(
                 'https://developers.tradeking.com/oauth/request_token',
@@ -159,9 +165,7 @@ module.exports = {
                       var gainloss = .01 //1 PENNY GAINS KID
                       var marketvaluechange = .01 //1% GAINS KID; if "gainz" are neg must be calced another way (assuming ally's exampl,es were not whack)
                       //instrument.sym, costbasis, qty, marketvalue, gainloss, marketvaluechange,
-                      for (var i = 0; i < 6; i++) {
-                           stockHoldings[i] = [];
-                      }
+
                       oauth.get(
                       'https://api.tradeking.com/v1/accounts/' + accountNumber + '/holdings.xml',
                       process.env.OAUTH_TOKEN, //test user token
@@ -207,9 +211,7 @@ module.exports = {
                           var symbol = "";
                           var price = 0;
                           var quantity = 0;
-                          for (var i = 0; i < 6; i++) {
-                               recentTrades[i] = [];
-                          }
+
                           oauth.get(
                           'https://api.tradeking.com/v1/accounts/' + accountNumber + '/history.xml?range=all&transactions=all',
                           process.env.OAUTH_TOKEN, //test user token
@@ -223,6 +225,7 @@ module.exports = {
                               if(err){
                                 throw err;
                               }
+
                               var length2 = result.response.transactions[0].transaction.length;
                               if(result.response.transactions[0].transaction.length == null) {
                                 length2 = 0;
@@ -237,13 +240,13 @@ module.exports = {
                                 date = result.response.transactions[0].transaction[xda].date
                                 desc = result.response.transactions[0].transaction[xda].desc
                                 symbol = result.response.transactions[0].transaction[xda].symbol
-
-                                recentTrades[xda][0] = price
-                                recentTrades[xda][1] = quantity
-                                recentTrades[xda][2] = activity
-                                recentTrades[xda][3] = date
-                                recentTrades[xda][4] = desc
-                                recentTrades[xda][5] = symbol
+                                console.log(price + " " + quantity + " " + activity + " " + date + " " + desc + " " + symbol);
+                                // recentTrades[xda][0] = price
+                                // recentTrades[xda][1] = quantity
+                                // recentTrades[xda][2] = activity
+                                // recentTrades[xda][3] = date
+                                // recentTrades[xda][4] = desc
+                                // recentTrades[xda][5] = symbol
                               }
 
 
