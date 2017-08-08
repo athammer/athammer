@@ -211,7 +211,7 @@ module.exports = {
                                recentTrades[i] = [];
                           }
                           oauth.get(
-                          'https://api.tradeking.com/v1/accounts/' + accountNumber + '/holdings.xml?range=all&transactions=all',
+                          'https://api.tradeking.com/v1/accounts/' + accountNumber + '/history.xml?range=all&transactions=all',
                           process.env.OAUTH_TOKEN, //test user token
                           process.env.OAUTH_SECRET_TOKEN, //test user secret
                           function (e, data, responce){
@@ -225,26 +225,26 @@ module.exports = {
                               }
                               console.log(result.response)
                               console.log(result.response.transactions)
-                              // if(result.response.transactions.transaction.length == null) {
-                              //   length2 = 0;
-                              //   console.log("no recent trades")
-                              // }
+                              if(result.response.transactions[0].transaction.length == null) {
+                                length2 = 0;
+                                console.log("no recent trades")
+                              }
                               for(var xda = 0; xda < length2; xda++) {
                                 //activity, date, desc, symbol, transaction[4] //price, transaction[5]
 
-                                // price = result.response.transactions[0].transaction[xda].transaction[4]
-                                // quantity = result.response.transactions[0].transaction[xda].transaction[5]
-                                // activity = result.response.transactions[0].transaction[xda].activity
-                                // date = result.response.transactions[0].transaction[xda].date
-                                // desc = result.response.transactions[0].transaction[xda].desc
-                                // symbol = result.response.transactions[0].transaction[xda].symbol
-                                //
-                                // recentTrades[xda][0] = price
-                                // recentTrades[xda][1] = quantity
-                                // recentTrades[xda][2] = activity
-                                // recentTrades[xda][3] = date
-                                // recentTrades[xda][4] = desc
-                                // recentTrades[xda][5] = symbol
+                                price = result.response.transactions[0].transaction[xda].transaction[4]
+                                quantity = result.response.transactions[0].transaction[xda].transaction[5]
+                                activity = result.response.transactions[0].transaction[xda].activity
+                                date = result.response.transactions[0].transaction[xda].date
+                                desc = result.response.transactions[0].transaction[xda].desc
+                                symbol = result.response.transactions[0].transaction[xda].symbol
+
+                                recentTrades[xda][0] = price
+                                recentTrades[xda][1] = quantity
+                                recentTrades[xda][2] = activity
+                                recentTrades[xda][3] = date
+                                recentTrades[xda][4] = desc
+                                recentTrades[xda][5] = symbol
                               }
 
 
