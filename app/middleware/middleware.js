@@ -97,7 +97,7 @@ module.exports = {
               for (var i = 0; i < 6; i++) {
                    stockHoldings[i] = [];
               }
-              for (var asdf = 0; asdf < 6; asdf++) {
+              for (var asdf = 0; asdf < 5; asdf++) {
                    recentTrades[asdf] = [];
               }
 
@@ -192,10 +192,10 @@ module.exports = {
                             gainloss = result.response.accountholdings[xd].gainloss
                             marketvaluechange = result.response.accountholdings[xd].marketvaluechange
 
-                            stockHoldings[xd][0] = stockSym
-                            stockHoldings[xd][1] = costBasis
-                            stockHoldings[xd][2] = qty
-                            stockHoldings[xd][3] = marketvalue
+                            stockHoldings[xd][1] = stockSym
+                            stockHoldings[xd][2] = costBasis
+                            stockHoldings[xd][3] = qty
+                            stockHoldings[xd][4] = marketvalue
                             stockHoldings[xd][4] = gainloss
                             stockHoldings[xd][5] = marketvaluechange
                           }
@@ -240,13 +240,20 @@ module.exports = {
                                 date = result.response.transactions[0].transaction[xda].date
                                 desc = result.response.transactions[0].transaction[xda].desc
                                 symbol = result.response.transactions[0].transaction[xda].symbol
-                                console.log(price + " " + quantity + " " + activity + " " + date + " " + desc + " " + symbol);
-                                recentTrades[xda][0] = price
-                                recentTrades[xda][1] = quantity
-                                recentTrades[xda][2] = activity
-                                recentTrades[xda][3] = date
-                                recentTrades[xda][4] = desc
-                                recentTrades[xda][5] = symbol
+                                var totalPrice = price * quantity;
+                                recentTrades[xda][0] = symbol
+                                //recentTrades[xda][3] = activity
+                                recentTrades[xda][1] = totalPrice
+                                recentTrades[xda][2] = price
+                                recentTrades[xda][3] = quantity
+                                recentTrades[xda][4] = date
+
+                                // recentTrades[xda][0] = price
+                                // recentTrades[xda][1] = quantity
+                                // recentTrades[xda][2] = activity
+                                // recentTrades[xda][3] = date
+                                // recentTrades[xda][4] = desc
+                                // recentTrades[xda][5] = symbol
                               }
 
 
