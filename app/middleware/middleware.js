@@ -241,12 +241,12 @@ module.exports = {
                                 desc = result.response.transactions[0].transaction[xda].desc
                                 symbol = result.response.transactions[0].transaction[xda].symbol
                                 console.log(price + " " + quantity + " " + activity + " " + date + " " + desc + " " + symbol);
-                                // recentTrades[xda][0] = price
-                                // recentTrades[xda][1] = quantity
-                                // recentTrades[xda][2] = activity
-                                // recentTrades[xda][3] = date
-                                // recentTrades[xda][4] = desc
-                                // recentTrades[xda][5] = symbol
+                                recentTrades[xda][0] = price
+                                recentTrades[xda][1] = quantity
+                                recentTrades[xda][2] = activity
+                                recentTrades[xda][3] = date
+                                recentTrades[xda][4] = desc
+                                recentTrades[xda][5] = symbol
                               }
 
 
