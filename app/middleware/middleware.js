@@ -20,6 +20,10 @@ module.exports = {
 
 
   tradingUpdate: function(req, res, possibleUser) {
+    try { //lol
+
+
+
     var BTCPrice;
     var totalBalance = 0;
     var orderData = []
@@ -316,4 +320,11 @@ module.exports = {
           });
     }
   )},
+
+
+
+  }
+  catch(err) {
+    res.send('Error has occured, this can be due to my website or the API changing or being down. Error: ' + err);
+  }
 }
