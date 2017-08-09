@@ -20,8 +20,8 @@ module.exports = {
 
 
   tradingUpdate: function(req, res, possibleUser) {
-    try { //lol
 
+    try {
 
 
     var BTCPrice;
@@ -318,14 +318,10 @@ module.exports = {
 
             });
           });
-    }
+    })
+  } catch(err) {
+    res.send('An error has occured, this can either be due to API changing or to something unforceen. Error: ' + err);
   }
-  catch(err) {
-    res.send('Error has occured, this can be due to my website or the API changing or being down. Error: ' + err);
-  }
-  )},
-
-
-
+  },
 
 }
