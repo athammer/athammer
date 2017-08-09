@@ -31,9 +31,7 @@ module.exports = {
          orderData[i] = [];
     }
     var cryptoData = []
-    for (var i = 0; i < 3; i++) {
-         cryptoData[i] = [];
-    }
+
 
 
     http.get({
@@ -61,7 +59,9 @@ module.exports = {
           }
           var obj = JSON.parse(body);
           console.log(obj.data)
-
+          for (var i = 0; i < obj.data.length; i++) {
+               cryptoData[i] = [];
+          }
           for(var i = 0; i < obj.data.length; i++) {
             cryptoData[i][0] = obj.data[i].balance_curr_code;
             cryptoData[i][1] = obj.data[i].balance_amount_total;
