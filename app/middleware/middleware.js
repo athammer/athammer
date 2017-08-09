@@ -60,7 +60,7 @@ module.exports = {
             return;
           }
           var obj = JSON.parse(body);
-          //console.log(obj.data)
+          console.log(obj.data)
 
           for(var i = 0; i < obj.data.length; i++) {
             cryptoData[i][0] = obj.data[i].balance_curr_code;
