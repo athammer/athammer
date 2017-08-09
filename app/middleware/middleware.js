@@ -319,12 +319,13 @@ module.exports = {
             });
           });
     }
-  )},
-
-
-
   }
   catch(err) {
     res.send('Error has occured, this can be due to my website or the API changing or being down. Error: ' + err);
   }
+  )},
+
+
+
+
 }
