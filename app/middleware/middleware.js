@@ -27,9 +27,7 @@ module.exports = {
     var BTCPrice;
     var totalBalance = 0;
     var orderData = []
-    for (var i = 0; i < 5; i++) {
-         orderData[i] = [];
-    }
+
     var cryptoData = []
 
 
@@ -80,6 +78,9 @@ module.exports = {
                 return;
               }
               var obj = JSON.parse(body);
+              for (var i = 0; i < obj.data.order_history.length; i++) {
+                   orderData[i] = [];
+              }
               for(var i = 0; i < obj.data.order_history.length; i++) {
                 orderData[i][0] = obj.data.order_history[i].mkt_name;
                 orderData[i][1] = obj.data.order_history[i].order_type
