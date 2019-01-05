@@ -1,0 +1,4 @@
+https://www.toptal.com/designers/subtlepatterns/
+sudo iptables -t nat -A PREROUTING -p tcp --dport 80 -j REDIRECT --to-ports 3000
+
+scp i "/home/athammer/Documents/projects/keys/personal/aaron-web.pem" ./Aaron Hammer's Resume.pdf ec2-user@54.160.207.137

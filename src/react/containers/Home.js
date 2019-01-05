@@ -1,5 +1,8 @@
 // Imports
 import React from 'react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faFile } from "@fortawesome/free-solid-svg-icons";
+import { faGithub, faLinkedin } from '@fortawesome/free-brands-svg-icons';
 
 class Home extends React.Component {
 
@@ -10,34 +13,38 @@ class Home extends React.Component {
         };
     }
 
-    componentDidMount() {
-    }
 
     render() {
         return (<div className="home-render">
-                <br/>
-                <br/>
-                <br/>
-                <br/>
-                <br/>
-                <br/>
-                <main role="main" className="inner cover">
-                    <h1 className="cover-heading">Welcome to Buy Pixels</h1>
-                    <p className="lead">Your one stop shop for buying and selling limiteds and robux on a secure, fast, and easy market place!</p>
-                    <p className="lead">
-                        <a href="/market" className="btn btn-lg btn-secondary">Go to Market Place</a>
-                    </p>
-                    <hr/>
-                    <h1 className="cover-heading">Want to start Buying and Selling?</h1>
-                    <p className="lead">Start buying and selling limiteds and robux now with a by logging in or a short registration!</p>
-                    <p className="lead">
-                        <a href="/authentication" className="btn btn-lg btn-secondary">Get Access Now!</a>
-                    </p>
-                </main>
-                <br/>
-                <footer className="mastfoot mt-auto">
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+          <h1 className="home-animation">
+              <span className="text-wrapper">
+                  <span className="letters">Under Construction</span>
+                  <br/>
+                  <span className="sub-letters">Check Me Out!</span>
+              </span>
+          </h1>
+          <div className="icons">
 
-                </footer>
+              <h1 className="icon-animation">
+                <a href="https://github.com/athammer" target="_blank" rel="noopener noreferrer" data-tippy-content="Github" id="tip-git" className="icon">
+                  <FontAwesomeIcon icon={faGithub} />
+                </a>
+                <a href="https://www.linkedin.com/in/athammer/" target="_blank" rel="noopener noreferrer" data-tippy-content="Linkedin" id="tip-link" className="icon">
+                  <FontAwesomeIcon icon={faLinkedin} />
+                </a>
+                <a href="/resume" data-tippy-content="Resume" id="tip-res" className="icon">
+                  <FontAwesomeIcon icon={faFile} />
+                </a>
+              </h1>
+          </div>
+
+
         </div>)
     }
 

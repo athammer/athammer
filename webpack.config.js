@@ -7,8 +7,11 @@ var webpack = require('webpack');
 module.exports = {
     mode: 'production',
     devtool: 'source-map',
+    resolve: {
+        extensions: [".jsx", ".json", ".js"]
+    },
     entry: {
-        home: './src/react/pages/home.js',
+        home: './src/react/pages/home.js'
     },
     output: {
         path: path.resolve(__dirname, 'public/javascripts'),
@@ -29,22 +32,9 @@ module.exports = {
         }]
     },
     plugins: [
-        new webpack.DefinePlugin({
-            'process.env': {
-                'dummyenvvar': JSON.stringify('ayyyy')//process.env.DUMMY),
-            }
-        })
+
     ],
-    // optimization: {
-    //     minimize: true,
-    //     minimizer: [
-    //         new UglifyJsPlugin({
-    //             exclude: /node_modules/
-    //         })
-    //     ]
-    // },
+
     context: path.resolve(__dirname)
-    // performance: {
-    //     hints: true
-    // }
+
 };

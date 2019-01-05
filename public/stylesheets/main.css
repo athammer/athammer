@@ -1,0 +1,88 @@
+.home-mount-react {
+  width: 100%;
+  height: 100%; }
+
+.home-animation {
+  position: relative;
+  font-weight: 200;
+  font-size: 5em;
+  font-weight: bold;
+  display: table;
+  margin: 0 auto; }
+  .home-animation .sub-letters {
+    color: white;
+    transform-origin: 50% 100%;
+    display: inline-block;
+    line-height: 1em;
+    font-size: .85em; }
+
+.home-animation .text-wrapper {
+  position: relative;
+  display: inline-block;
+  padding-top: 0.2em;
+  padding-right: 0.05em;
+  padding-bottom: 0.1em;
+  overflow: hidden;
+  text-align: center; }
+
+.home-animation .letter {
+  transform-origin: 50% 100%;
+  display: inline-block;
+  line-height: 1em; }
+
+.icon-animation {
+  font-weight: 800;
+  font-size: 3.8em;
+  text-transform: uppercase;
+  letter-spacing: 0.5em; }
+
+.icon-animation .icon {
+  opacity: 0;
+  display: inline-block;
+  line-height: 1em; }
+
+.letters {
+  color: white;
+  text-shadow: 0px 4px 3px rgba(0, 0, 0, 0.4), 0px 8px 13px rgba(0, 0, 0, 0.1), 0px 18px 23px rgba(0, 0, 0, 0.1); }
+
+.icons {
+  display: table;
+  margin: 0 auto; }
+  .icons .icon {
+    font-size: 140px;
+    color: white;
+    padding: 20px; }
+
+.tippy-tooltip.home-theme .tippy-backdrop {
+  background: white;
+  color: black; }
+
+.tippy-tooltip.home-theme {
+  color: black;
+  background: white; }
+
+.tippy-tooltip.home-theme .tippy-roundarrow {
+  fill: white; }
+
+.tippy-popper[x-placement^='top'] .tippy-tooltip.home-theme .tippy-arrow {
+  border-top-color: white; }
+
+.tippy-popper[x-placement^='bottom'] .tippy-tooltip.home-theme .tippy-arrow {
+  border-bottom-color: white; }
+
+.tippy-popper[x-placement^='left'] .tippy-tooltip.home-theme .tippy-arrow {
+  border-left-color: white; }
+
+.tippy-popper[x-placement^='right'] .tippy-tooltip.home-theme .tippy-arrow {
+  border-right-color: white; }
+
+body {
+  width: 100%;
+  height: 100%;
+  background: url("/images/prism.png") repeat 0 0; }
+
+html {
+  width: 100%;
+  height: 100%; }
+
+/*# sourceMappingURL=main.css.map */
