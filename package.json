@@ -1,33 +1,51 @@
 {
-  "name": "Personal-Website",
-  "version": "0.0.1",
-  "description": "Aaron T Hammer's personal website.",
+  "name": "athammer",
+  "version": "0.0.0",
   "author": "Aaron T Hammer athammer@buffalo.edu",
-  "main": "app.js",
+  "description": "my site :)",
+  "main": "server.js",
   "scripts": {
-    "start": "node app.js"
-  },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/athammer/AaronTHammer.me"
+    "start": "npm run sass & npm run watch-sass & webpack -d --watch --output-pathinfo & pm2 start server.js --watch",
+    "globals": "npm install pm2 -g",
+    "logs": "pm2 logs",
+    "build": "webpack -p",
+    "webpack": "webpack",
+    "watch": "webpack --watch",
+    "watch-sass": "node-sass -w src/sass/main.scss -o public/stylesheets/ --source-map public/stylesheets/",
+    "sass": "node-sass src/sass/main.scss -o public/stylesheets/ --source-map public/stylesheets/"
   },
   "dependencies": {
-    "ejs": "^2.4.2",
-    "express": "^4.14.0",
-    "express-subdomain": "^1.0.5",
-    "helmet": "^2.1.1",
-    "node-rest-client": "^3.1.0",
-    "nodemailer": "^3.1.8",
-    "oauth": "^0.9.15",
-    "request": "^2.81.0",
-    "serve-favicon": "^2.3.0",
-    "typeit": "^4.4.0",
-    "xml2js": "^0.4.17"
+    "axios": "^0.18.0",
+    "bcrypt": "^3.0.0",
+    "body-parser": "^1.18.3",
+    "compression": "^1.7.3",
+    "connect-session-sequelize": "^5.2.2",
+    "cookie-parser": "^1.4.3",
+    "ejs": "~2.5.7",
+    "express": "~4.16.0",
+    "express-handlebars": "^3.0.0",
+    "express-session": "^1.15.6",
+    "helmet": "^3.13.0",
+    "lodash": "^4.17.10",
+    "node-sass": "^4.9.2",
+    "nodemailer": "^4.6.8",
+    "nodemailer-express-handlebars": "^3.0.0",
+    "react": "^16.4.1",
+    "react-dom": "^16.4.1",
+    "react-notifications": "^1.4.3",
+    "react-router-dom": "^4.3.1",
+    "request": "^2.88.0",
+    "serve-favicon": "^2.5.0",
+    "validator": "^10.7.0"
   },
   "devDependencies": {
-    "gulp": "^3.9.1",
-    "gulp-clean-css": "^2.0.11",
-    "gulp-sass": "^2.3.2",
-    "gulp-sourcemaps": "^1.6.0"
+    "babel-core": "^6.26.3",
+    "babel-loader": "^7.1.5",
+    "babel-preset-env": "^1.7.0",
+    "babel-preset-react": "^6.24.1",
+    "babel-preset-stage-2": "^6.24.1",
+    "uglifyjs-webpack-plugin": "^1.2.7",
+    "webpack": "^4.16.0",
+    "webpack-cli": "^3.0.8"
   }
 }
