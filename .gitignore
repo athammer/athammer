@@ -32,5 +32,4 @@ node_modules
 # Optional REPL history
 .node_repl_history
 
-# 13chan zip file
-13chan.zip
+things.txt

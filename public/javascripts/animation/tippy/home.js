@@ -1,5 +1,4 @@
-
-tippy('a', {
+tippy('.tips', {
   animation: 'scale',
   duration: 0,
   arrow: true,

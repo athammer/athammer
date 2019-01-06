@@ -53,6 +53,16 @@
     color: white;
     padding: 20px; }
 
+.text-muted {
+  text-align: center; }
+
+.divRepo {
+  display: flex;
+  justify-content: center; }
+  .divRepo .repo {
+    color: #97c9ff;
+    text-decoration: none; }
+
 .tippy-tooltip.home-theme .tippy-backdrop {
   background: white;
   color: black; }
@@ -75,6 +85,53 @@
 
 .tippy-popper[x-placement^='right'] .tippy-tooltip.home-theme .tippy-arrow {
   border-right-color: white; }
+
+@media screen and (max-width: 1000px) {
+  .text-wrapper {
+    font-size: .90em; } }
+
+@media screen and (max-width: 800px) {
+  .text-wrapper {
+    font-size: .75em; } }
+
+@media screen and (max-width: 680px) {
+  .text-wrapper {
+    font-size: .60em; } }
+
+@media screen and (max-width: 515px) {
+  .text-wrapper {
+    font-size: .52em; }
+  svg.fa-github {
+    width: .75em !important; }
+  svg.fa-linkedin {
+    width: .75em !important; }
+  svg.fa-file {
+    width: .75em !important; } }
+
+@media screen and (max-width: 450px) {
+  .text-wrapper {
+    font-size: .42em;
+    word-wrap: break-word; }
+  svg.fa-github {
+    width: .45em !important; }
+  svg.fa-linkedin {
+    width: .45em !important; }
+  svg.fa-file {
+    width: .45em !important; } }
+
+@media screen and (max-width: 360px) {
+  .text-wrapper {
+    font-size: .38em; } }
+
+@media screen and (max-width: 310px) {
+  .text-wrapper {
+    font-size: .28em; }
+  svg.fa-github {
+    width: .35em !important; }
+  svg.fa-linkedin {
+    width: .35em !important; }
+  svg.fa-file {
+    width: .35em !important; } }
 
 body {
   width: 100%;
