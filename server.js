@@ -12,8 +12,16 @@ app.engine('.hbs', exphbs({
     extname: '.hbs'
 }));
 app.set('view engine', '.hbs');
-//app.set('trust proxy', 1) // trust first proxy
+app.set('trust proxy', 1) // trust first proxy
 
+
+function requireHTTPS(req, res, next) {
+  if (!req.secure !== 'https' && process.env.NODE_ENV !== "development") {
+    return res.redirect('https://' + req.get('host') + req.url);
+  }
+  next();
+}
+app.use(requireHTTPS);
 app.use(helmet())
 app.use(bodyParser.urlencoded({extended:true}));
 app.use(bodyParser.json());
