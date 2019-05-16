@@ -8,7 +8,7 @@ var animation = anime.timeline({})
         targets: '.home-animation .letter',
         scale: [0, 1],
         opacity: [0.5, 1],
-        duration: 1500,
+        duration: 1200,
         elasticity: 600,
         delay: function (el, i) {
             return 80 * (i + 1)
@@ -21,9 +21,9 @@ var animation = anime.timeline({})
                     scale: [8, 1],
                     opacity: [0, 1],
                     easing: "easeOutCirc",
-                    duration: 800,
+                    duration: 200,
                     delay: function (el, i) {
-                        return 800 * i;
+                        return 500 * i;
                     }
                 })
         }

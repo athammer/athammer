@@ -61,6 +61,8 @@
   justify-content: center; }
   .divRepo .repo {
     color: #97c9ff;
+    margin-top: 8px;
+    font-weight: bold;
     text-decoration: none; }
 
 .tippy-tooltip.home-theme .tippy-backdrop {
@@ -90,15 +92,15 @@
   .text-wrapper {
     font-size: .90em; } }
 
-@media screen and (max-width: 800px) {
+@media screen and (max-width: 895px) {
   .text-wrapper {
     font-size: .75em; } }
 
-@media screen and (max-width: 680px) {
+@media screen and (max-width: 750px) {
   .text-wrapper {
     font-size: .60em; } }
 
-@media screen and (max-width: 515px) {
+@media screen and (max-width: 600px) {
   .text-wrapper {
     font-size: .52em; }
   svg.fa-github {
@@ -108,30 +110,46 @@
   svg.fa-file {
     width: .75em !important; } }
 
-@media screen and (max-width: 450px) {
+@media screen and (max-width: 525px) {
   .text-wrapper {
     font-size: .42em;
     word-wrap: break-word; }
   svg.fa-github {
-    width: .45em !important; }
+    width: .65em !important; }
   svg.fa-linkedin {
-    width: .45em !important; }
+    width: .65em !important; }
   svg.fa-file {
-    width: .45em !important; } }
+    width: .65em !important; } }
 
-@media screen and (max-width: 360px) {
+@media screen and (max-width: 420px) {
   .text-wrapper {
-    font-size: .38em; } }
+    font-size: .38em; }
+  svg.fa-github {
+    width: .55em !important; }
+  svg.fa-linkedin {
+    width: .55em !important; }
+  svg.fa-file {
+    width: .55em !important; } }
 
-@media screen and (max-width: 310px) {
+@media screen and (max-width: 380px) {
+  .text-wrapper {
+    font-size: .30em; }
+  svg.fa-github {
+    width: .46em !important; }
+  svg.fa-linkedin {
+    width: .46em !important; }
+  svg.fa-file {
+    width: .46em !important; } }
+
+@media screen and (max-width: 320px) {
   .text-wrapper {
     font-size: .28em; }
   svg.fa-github {
-    width: .35em !important; }
+    width: .40em !important; }
   svg.fa-linkedin {
-    width: .35em !important; }
+    width: .40em !important; }
   svg.fa-file {
-    width: .35em !important; } }
+    width: .40em !important; } }
 
 body {
   width: 100%;

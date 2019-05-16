@@ -15,24 +15,27 @@ app.set('view engine', '.hbs');
 app.set('trust proxy', 1) // trust first proxy
 
 
-function requireHTTPS(req, res, next) {
-  if (!req.secure !== 'https' && process.env.NODE_ENV !== "development") {
-    return res.redirect('https://' + req.get('host') + req.url);
-  }
-  next();
-}
-app.use(requireHTTPS);
 app.use(helmet())
 app.use(bodyParser.urlencoded({extended:true}));
 app.use(bodyParser.json());
 
+function requireHTTPS(req, res, next) {
+    if (!req.secure) {
+        //FYI this should work for local development as well
+        return res.redirect('https://' + req.get('host') + req.url);
+    }
+    next();
+}
 
+app.use(requireHTTPS);
 
 
 //app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
 app.use(express.static(path.join(__dirname, 'public')));
 
 require('./app/middleware/routes/index.js')(app);
+
+
 //
 // //routes vars
 // //user routes vars
