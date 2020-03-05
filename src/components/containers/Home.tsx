@@ -1,16 +1,13 @@
 import React from "react"
-import PropTypes from "prop-types"
+import HomeComp from "./../Home"
 
-import Img from "../Image"
-
-
-import "../../styles/home.scss"
+import "../../styles/components/containers/home.scss"
 
 const Home = () => {
 
   return (
-	<div className="home-content">
-		<h1>Aaron Hammer</h1>
+    <div className="home-container">
+      <HomeComp />
     </div>
   )
 }
