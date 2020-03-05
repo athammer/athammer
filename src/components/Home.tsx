@@ -16,11 +16,11 @@ const Home = () => {
     <div className="home-content">
       <h1 className="title">Aaron Hammer's Website</h1>
       <div className="links">
-        <a href={resumeFile} target="_blank"><Resume/></a>
-        <a href="https://www.linkedin.com/in/athammer/" target="_blank"><Linkedin title="Resume" alt="Resume"/></a>
-        <a href="https://twitter.com/athammer_" target="_blank"><Twitter title="Twitter" alt="Twitter"/></a>
-        <a href="https://github.com/athammer" target="_blank"><Github title="Github" alt="Github"/></a>
-        <a href="https://medium.com/@athammer_" target="_blank"><Medium title="Medium" alt="Medium"/></a>
+        <a href={resumeFile} target="_blank" title="Resume"><Resume alt="Resume"/></a>
+        <a href="https://www.linkedin.com/in/athammer/" title="Linkedin" target="_blank"><Linkedin alt="Linkedin"/></a>
+        <a href="https://twitter.com/athammer_" title="Twitter" target="_blank"><Twitter alt="Twitter"/></a>
+        <a href="https://github.com/athammer" title="Github" target="_blank"><Github alt="Github"/></a>
+        <a href="https://medium.com/@athammer_" title="Medium" target="_blank"><Medium alt="Medium"/></a>
       </div>
       <h3 className="contact-me"><a href="mailto:athammer@buffalo.edu">Contact me by Email</a></h3>
 
